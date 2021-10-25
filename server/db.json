@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "name": "duduk"
+    },
+    {
+      "id": 2,
+      "name": "depan"
+    },
+    {
+      "id": 3,
+      "name": "laptop"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # P3-Challenge-1
 
-- Tema Aplikasi:
-- CSS Framework:
+- Tema Aplikasi: Movie Synopsis
+- CSS Framework: Bootstrap
 
 Struktur Folder:
 
@@ -13,9 +13,9 @@ Struktur Folder:
 
 Target:
 
-- [ ] Knowledge - React Class Component
-- [ ] State
-- [ ] Props (state, function)
+- [ v ] Knowledge - React Class Component
+- [ v ] State
+- [ v ] Props (state, function)
 - [ ] Event Handling (onClick, onChange, onSubmit)
 - [ ] Conditional in React
 - [ ] Looping in React
