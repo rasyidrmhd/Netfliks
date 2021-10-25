@@ -2,6 +2,7 @@ import React from "react";
 
 export default class MoviesCard extends React.Component {
   render() {
-    return <h1>This is Movie Card</h1>;
+    const { movie } = this.props;
+    return <h1>{movie.title}</h1>;
   }
 }

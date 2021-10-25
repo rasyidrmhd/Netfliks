@@ -13,36 +13,60 @@ export default class Navbar extends React.Component {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+                  Movies
+                </span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+                  TV Show
+                </span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+                  Animes
+                </span>
+              </a>
+            </li>
+          </ul>
+
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
                   Sign In
                 </span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
                   Sign Up
                 </span>
               </a>
             </li>
           </ul>
 
-          {/* <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-white font-weight-bolder">Welcome, User</span>
-                <img class="img-profile rounded-circle" style={{ height: 30 }} src={defaultProfile} alt="..." />
+          {/* <ul className="navbar-nav ml-auto">
+            <li className="nav-item dropdown no-arrow">
+              <a className="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder">Welcome, User</span>
+                <img className="img-profile rounded-circle" style={{ height: 30 }} src={defaultProfile} alt="..." />
               </a>
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-clipboard-list fa-sm fa-fw mr-2"></i>
+              <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="dropdownMenuButton">
+                <a className="dropdown-item" href="#">
+                  <i className="fas fa-clipboard-list fa-sm fa-fw mr-2"></i>
                   Watchlist
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
+                <a className="dropdown-item" href="#">
+                  <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
                   Sign Out
                 </a>
               </div>
