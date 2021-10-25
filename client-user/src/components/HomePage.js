@@ -91,7 +91,11 @@ export default class HomePage extends React.Component {
         <div className="d-flex flex-row flex-wrap justify-content-center">
           {this.state.genres.map((genre) => {
             return (
-              <div className="card shadow m-3 d-flex border-0" key={genre.id} style={{ width: "19rem", height: "8rem", background: `url(${genre.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", borderRadius: "20px" }}>
+              <div
+                className="card shadow my-3 mx-2 d-flex border-0"
+                key={genre.id}
+                style={{ width: "20rem", height: "8rem", background: `url(${genre.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", borderRadius: "20px" }}
+              >
                 <div className="card-body text-center font-weight-bolder d-flex align-items-center justify-content-center">{genre.name}</div>
               </div>
             );
@@ -102,8 +106,21 @@ export default class HomePage extends React.Component {
           <div className="d-flex flex-row justify-content-center">
             {this.state.genres.map((genre) => {
               return (
-                <div className="card shadow m-3 d-flex border-0" key={genre.id} style={{ width: "19rem", height: "8rem", background: `url(${genre.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", borderRadius: "20px" }}>
-                  <div className="card-body text-center font-weight-bolder d-flex align-items-center justify-content-center">{genre.name}</div>
+                <div
+                  className="card shadow my-3 mx-2 d-flex border-0"
+                  key={genre.id}
+                  style={{ width: "20rem", height: "20rem", background: `url(${genre.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", borderRadius: "20px" }}
+                >
+                  <div className="card-body text-center font-weight-bolder d-flex flex-column align-items-start justify-content-end">
+                    {genre.name}
+                    <div>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i>
+                      <i class="fas fa-star text-warning"></i> 5.0 / 5.0
+                    </div>
+                  </div>
                 </div>
               );
             })}
