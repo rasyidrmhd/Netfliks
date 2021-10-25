@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import MoviesCard from "./MoviesCard";
+import GenreCard from "./GenreCard";
 
 export default class HomePage extends React.Component {
   constructor() {
@@ -68,9 +69,13 @@ export default class HomePage extends React.Component {
       <div style={{ minHeight: "100vh", backgroundColor: "#212121", paddingTop: "60px", color: "white" }}>
         <Navbar></Navbar>
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-          <div className="carousel-inner" style={{ height: "70vh" }}>
+          <div className="carousel-inner align-items-center" style={{ height: "70vh" }}>
             <div className="carousel-item active">
               <img src="https://img.okezone.com/content/2019/05/06/206/2051975/makna-di-balik-kalimat-i-love-you-3000-di-avengers-endgame-rzLSTLrS4P.jpg" className="d-block w-100 img-fluid" alt="..." />
+              {/* <div class="carousel-caption" style={{ top: "25%", bottom: "initial" }}>
+                <h5>Hello World</h5>
+                <p>...</p>
+              </div> */}
             </div>
             <div className="carousel-item">
               <img src="https://aliefworkshop.files.wordpress.com/2020/04/sonic5.jpg" className="d-block w-100" alt="..." />
@@ -90,15 +95,7 @@ export default class HomePage extends React.Component {
         </div>
         <div className="d-flex flex-row flex-wrap justify-content-center">
           {this.state.genres.map((genre) => {
-            return (
-              <div
-                className="card shadow my-3 mx-2 d-flex border-0"
-                key={genre.id}
-                style={{ width: "20rem", height: "8rem", background: `url(${genre.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", borderRadius: "20px" }}
-              >
-                <div className="card-body text-center font-weight-bolder d-flex align-items-center justify-content-center">{genre.name}</div>
-              </div>
-            );
+            return <GenreCard genre={genre} key={genre.id}></GenreCard>;
           })}
         </div>
         <h4 className="container-fluid mt-2">Top Rated</h4>
