@@ -24,7 +24,7 @@ Target:
 - [ ] Create react app for client-user (Styling)
 - [ ] Create react app for client-admin (CRUD)
 - [x] Menentukan Thema Aplikasi
-- [ ] Menentukan Design dan pemilihan CSS Framework
+- [x] Menentukan Design dan pemilihan CSS Framework
 
 **Report:**
 

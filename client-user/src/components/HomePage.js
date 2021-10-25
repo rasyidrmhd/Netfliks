@@ -88,14 +88,26 @@ export default class HomePage extends React.Component {
             <span className="sr-only">Next</span>
           </a>
         </div>
-        <div className="d-flex flex-row flex-wrap justify-content-center text-dark">
+        <div className="d-flex flex-row flex-wrap justify-content-center">
           {this.state.genres.map((genre) => {
             return (
-              <div className="card m-3" key={genre.id}>
-                <div className="card-body">{genre.name}</div>
+              <div className="card shadow m-3 d-flex border-0" key={genre.id} style={{ width: "19rem", height: "8rem", background: `url(${genre.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", borderRadius: "20px" }}>
+                <div className="card-body text-center font-weight-bolder d-flex align-items-center justify-content-center">{genre.name}</div>
               </div>
             );
           })}
+        </div>
+        <h4 className="container-fluid mt-2">Top Rated</h4>
+        <div>
+          <div className="d-flex flex-row justify-content-center">
+            {this.state.genres.map((genre) => {
+              return (
+                <div className="card shadow m-3 d-flex border-0" key={genre.id} style={{ width: "19rem", height: "8rem", background: `url(${genre.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", borderRadius: "20px" }}>
+                  <div className="card-body text-center font-weight-bolder d-flex align-items-center justify-content-center">{genre.name}</div>
+                </div>
+              );
+            })}
+          </div>
         </div>
         {/* <div className="container-fluid">
           {this.state.movies.map((movie) => {
