@@ -23,9 +23,9 @@ export default class HomePage extends React.Component {
         },
         {
           id: 2,
-          title: "Attack On Titan",
+          title: "Squid Game",
           slug: "movie2",
-          synopsis: "Attack On Titan Synopsis",
+          synopsis: "Squid Game Synopsis",
           trailerUrl: "google.com",
           imgUrl: "google.com",
           rating: 8.4,
@@ -36,9 +36,9 @@ export default class HomePage extends React.Component {
         },
         {
           id: 3,
-          title: "Attack On Titan",
+          title: "Avengers: End Game",
           slug: "movie2",
-          synopsis: "Attack On Titan Synopsis",
+          synopsis: "Avengers End Game Synopsis",
           trailerUrl: "google.com",
           imgUrl: "google.com",
           rating: 8.4,
@@ -61,7 +61,7 @@ export default class HomePage extends React.Component {
         <Navbar></Navbar>
         <div className="container-fluid">
           {this.state.movies.map((movie) => {
-            return movie.title + " ";
+            return <MoviesCard movie={movie} key={movie.id}></MoviesCard>;
           })}
         </div>
       </div>

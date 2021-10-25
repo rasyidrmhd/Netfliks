@@ -1,16 +1,108 @@
 {
-  "todos": [
+  "user": [
     {
       "id": 1,
-      "name": "duduk"
+      "username": "acit",
+      "email": "acit@mail.com",
+      "password": "12345",
+      "role": "admin",
+      "phoneNumber": "12345",
+      "address": "Ujungberung",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    }
+  ],
+  "movie": [
+    {
+      "id": 1,
+      "title": "Avengers: End Game",
+      "slug": "Avengers:-End-Game",
+      "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+      "trailerUrl": "https://www.youtube.com/watch?v=TcMBFSGVi1c",
+      "imgUrl": "www.google.com",
+      "rating": 5,
+      "GenreId": 1,
+      "AuthorId": 1,
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
     },
     {
       "id": 2,
-      "name": "depan"
+      "title": "Free Guy",
+      "slug": "Free-Guy",
+      "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+      "trailerUrl": "https://www.youtube.com/watch?v=X2m-08cOAbc",
+      "imgUrl": "www.google.com",
+      "rating": 5,
+      "GenreId": 1,
+      "AuthorId": 1,
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
     },
     {
       "id": 3,
-      "name": "laptop"
+      "title": "Sonic The Hedgehog",
+      "slug": "Sonic-The-Hedgehog",
+      "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+      "trailerUrl": "https://www.youtube.com/watch?v=szby7ZHLnkA",
+      "imgUrl": "www.google.com",
+      "rating": 5,
+      "GenreId": 1,
+      "AuthorId": 1,
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    }
+  ],
+  "genre": [
+    {
+      "id": 1,
+      "name": "Action",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 2,
+      "name": "Comedy",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 3,
+      "name": "Adventure",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 4,
+      "name": "Sci-Fi",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    }
+  ],
+  "cast": [
+    {
+      "id": 1,
+      "MovieId": 1,
+      "name": "Robert Downey Jr",
+      "profilePict": "www.google.com",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 2,
+      "MovieId": 1,
+      "name": "Crish Evan",
+      "profilePict": "www.google.com",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 1,
+      "MovieId": 1,
+      "name": "Scarlett Johansson",
+      "profilePict": "www.google.com",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
     }
   ]
 }
