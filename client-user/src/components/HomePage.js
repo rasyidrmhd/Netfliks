@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-import MoviesCard from "./MoviesCard";
+import MovieCard from "./MovieCard";
 import GenreCard from "./GenreCard";
 
 export default class HomePage extends React.Component {
@@ -37,8 +37,8 @@ export default class HomePage extends React.Component {
           <div className="carousel-inner align-items-center" style={{ height: "70vh" }}>
             <div className="carousel-item active">
               <img src="https://img.okezone.com/content/2019/05/06/206/2051975/makna-di-balik-kalimat-i-love-you-3000-di-avengers-endgame-rzLSTLrS4P.jpg" className="d-block w-100 img-fluid" alt="..." />
-              {/* <div class="carousel-caption" style={{ top: "25%", bottom: "initial" }}>
-                <h5>Hello World</h5>
+              {/* <div class="d-flex flex-column align-items-center carousel-caption text-left" style={{ top: "25%" }}>
+                <h1>Hello World</h1>
                 <p>...</p>
               </div> */}
             </div>
@@ -68,7 +68,7 @@ export default class HomePage extends React.Component {
         <div>
           <div className="d-flex flex-row justify-content-start" style={{ width: "90vw" }}>
             {this.state.movies.map((movie) => {
-              return <MoviesCard movie={movie} key={movie.id}></MoviesCard>;
+              return <MovieCard movie={movie} key={movie.id}></MovieCard>;
             })}
           </div>
         </div>
