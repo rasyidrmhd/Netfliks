@@ -10,6 +10,15 @@
       "address": "Ujungberung",
       "createdAt": "12-12-2020",
       "updatedAt": "12-12-2020"
+    },
+    {
+      "username": "acit2",
+      "email": "acit2@mail.com",
+      "password": "123456",
+      "role": "admin",
+      "phoneNumber": "0819999",
+      "address": "Bandung",
+      "id": 2
     }
   ],
   "movie": [

@@ -30,16 +30,16 @@ function HomePage(props) {
                 <h5 className="m-0 font-weight-bold text-danger">List Movies</h5>
                 <a
                   href="#"
-                  class="btn btn-sm btn-danger btn-icon-split"
+                  className="btn btn-sm btn-danger btn-icon-split"
                   onClick={(e) => {
                     e.preventDefault();
                     props.changePage("addMovie");
                   }}
                 >
-                  <span class="icon">
-                    <i class="fa fa-plus"></i>
+                  <span className="icon">
+                    <i className="fa fa-plus"></i>
                   </span>
-                  <span class="text">Add New Movie</span>
+                  <span className="text">Add New Movie</span>
                 </a>
               </div>
               <div className="card-body" style={{ backgroundColor: "#212121" }}>
@@ -61,7 +61,7 @@ function HomePage(props) {
                     <tbody>
                       {movies.map((movie, idx) => {
                         return (
-                          <tr className="text-white text-center" style={{ backgroundColor: "#303030" }}>
+                          <tr key={movie.id} className="text-white text-center" style={{ backgroundColor: "#303030" }}>
                             <td>{idx + 1}</td>
                             <td>
                               <img src={movie.imgUrl} alt="" style={{ width: "200px", borderRadius: "20px" }} />
@@ -78,10 +78,10 @@ function HomePage(props) {
                             </td>
                             <td>
                               <a href="#" className="btn btn-success btn-circle m-1">
-                                <i class="fa fa-pencil-alt"></i>
+                                <i className="fa fa-pencil-alt"></i>
                               </a>
                               <a href="#" className="btn btn-danger btn-circle m-1">
-                                <i class="fa fa-trash"></i>
+                                <i className="fa fa-trash"></i>
                               </a>
                             </td>
                           </tr>

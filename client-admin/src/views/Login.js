@@ -28,7 +28,7 @@ function Login(props) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
     props.changeIsLoggedIn(true);
     console.log(inputLogin.email, ">>>>>>email");
@@ -44,7 +44,7 @@ function Login(props) {
               <div className="text-center">
                 <h1 className="h2 text-danger font-weight-bolder">Netfliks Admin</h1>
               </div>
-              <form className="mt-4 user" onSubmit={handleSubmit}>
+              <form className="mt-4 user" onSubmit={submitHandler}>
                 <div className="form-group">
                   <label htmlFor="email">Username / Email</label>
                   <input type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter your unique username or email" name="email" id="email" value={inputLogin.email} onChange={changeInputLoginHandler} />
