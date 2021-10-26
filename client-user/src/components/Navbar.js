@@ -23,14 +23,14 @@ function Navbar() {
           <li className="nav-item">
             <a className="nav-link" href="#">
               <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
-                TV Show
+                TV Series
               </span>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
               <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
-                Anime
+                Animes
               </span>
             </a>
           </li>

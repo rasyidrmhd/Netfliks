@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import GenreCard from "./GenreCard";
 import MovieCard from "./MovieCard";
+import { server } from "../apis/server";
 
 function HomePage() {
   const [genres, setGenres] = useState([]);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3002/genre")
+    fetch(`${server}/genre`)
       .then((response) => {
         return response.json();
       })
@@ -17,7 +18,7 @@ function HomePage() {
       })
       .catch((err) => {});
 
-    fetch("http://localhost:3002/movie?rating=5")
+    fetch(`${server}/movie?rating=5`)
       .then((response) => {
         return response.json();
       })
