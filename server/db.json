@@ -1,0 +1,132 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "acit",
+      "email": "acit@mail.com",
+      "password": "12345",
+      "role": "admin",
+      "phoneNumber": "12345",
+      "address": "Ujungberung",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    }
+  ],
+  "movie": [
+    {
+      "id": 1,
+      "title": "Avengers: End Game",
+      "slug": "Avengers:-End-Game",
+      "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+      "trailerUrl": "https://www.youtube.com/watch?v=TcMBFSGVi1c",
+      "imgUrl": "https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810",
+      "rating": 5,
+      "GenreId": 1,
+      "AuthorId": 1,
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 2,
+      "title": "Free Guy",
+      "slug": "Free-Guy",
+      "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+      "trailerUrl": "https://www.youtube.com/watch?v=X2m-08cOAbc",
+      "imgUrl": "www.google.com",
+      "rating": 4,
+      "GenreId": 1,
+      "AuthorId": 1,
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 3,
+      "title": "Sonic The Hedgehog",
+      "slug": "Sonic-The-Hedgehog",
+      "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+      "trailerUrl": "https://www.youtube.com/watch?v=szby7ZHLnkA",
+      "imgUrl": "https://i2.wp.com/mariviu.com/wp-content/uploads/2020/02/s8-1.jpg?fit=1024%2C576&ssl=1",
+      "rating": 5,
+      "GenreId": 1,
+      "AuthorId": 1,
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 4,
+      "title": "Your Name",
+      "slug": "Your-Name",
+      "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+      "trailerUrl": "https://www.youtube.com/watch?v=NooIc3dMncc",
+      "imgUrl": "www.google.com",
+      "rating": 3,
+      "GenreId": 1,
+      "AuthorId": 1,
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    }
+  ],
+  "genre": [
+    {
+      "id": 1,
+      "name": "Action",
+      "imgUrl": "https://pbblogassets.s3.amazonaws.com/uploads/2020/06/09100915/John-Wick-Action-Genre-1.jpg",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 2,
+      "name": "Comedy",
+      "imgUrl": "https://media.tabloidbintang.com/files/thumb/84516025fe9dc2fe64037e92dfad1259.jpg/745",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 3,
+      "name": "Adventure",
+      "imgUrl": "https://unitingartists.org/wp-content/uploads/2020/06/Adventure-Genre.jpg",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 4,
+      "name": "Sci-Fi",
+      "imgUrl": "https://www.seluncur.id/wp-content/uploads/2019/06/pengertian-film-sci-fi.jpg",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 5,
+      "name": "Fantasy",
+      "imgUrl": "https://images.ctfassets.net/qpn1gztbusu2/2sEq4wHQk4Vbj4pJP7Dlo9/9fb20ca821203b0a35847998c1a41cff/chinese-style-fantasy-scene.jpg",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    }
+  ],
+  "cast": [
+    {
+      "id": 1,
+      "MovieId": 1,
+      "name": "Robert Downey Jr",
+      "profilePict": "www.google.com",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 2,
+      "MovieId": 1,
+      "name": "Crish Evan",
+      "profilePict": "www.google.com",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    },
+    {
+      "id": 1,
+      "MovieId": 1,
+      "name": "Scarlett Johansson",
+      "profilePict": "www.google.com",
+      "createdAt": "12-12-2020",
+      "updatedAt": "12-12-2020"
+    }
+  ]
+}
