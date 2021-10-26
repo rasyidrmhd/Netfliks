@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./assets/css/fontfamily.css";
+import "./assets/css/sb-admin-2.min.css";
+import "./assets/vendor/fontawesome-free/css/all.css";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "url(https://assets.nflxext.com/ffe/siteui/vlv3/a1a5d7dc-aedf-4570-b58d-693af16e1445/13a76a0d-0dc6-416a-9bb2-4495f4d15fb1/ID-en-20211020-popsignuptwoweeks-perspective_alpha_website_medium.jpg)",
+        backgroundColor: "#212121",
+        color: "white",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <Login></Login>
     </div>
   );
 }

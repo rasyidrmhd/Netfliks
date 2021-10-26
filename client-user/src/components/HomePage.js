@@ -14,12 +14,12 @@ export default class HomePage extends React.Component {
   }
 
   async componentDidMount() {
-    const genres = await fetch("http://localhost:3001/genre");
+    const genres = await fetch("http://localhost:3002/genre");
     const dataGenres = await genres.json();
     this.setState({ genres: dataGenres });
     console.log(this.state.genres);
 
-    const movies = await fetch("http://localhost:3001/movie?rating=5");
+    const movies = await fetch("http://localhost:3002/movie?rating=5");
     const dataMovies = await movies.json();
     this.setState({ movies: dataMovies });
     console.log(this.state.movies);
@@ -31,7 +31,7 @@ export default class HomePage extends React.Component {
 
   render() {
     return (
-      <div style={{ minHeight: "100vh", backgroundColor: "#212121", paddingTop: "60px", color: "white" }}>
+      <div style={{ paddingTop: "60px" }}>
         <Navbar></Navbar>
         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner align-items-center" style={{ height: "70vh" }}>
@@ -72,11 +72,6 @@ export default class HomePage extends React.Component {
             })}
           </div>
         </div>
-        {/* <div className="container-fluid">
-          {this.state.movies.map((movie) => {
-            return <MoviesCard movie={movie} key={movie.id}></MoviesCard>;
-          })}
-        </div> */}
       </div>
     );
   }
