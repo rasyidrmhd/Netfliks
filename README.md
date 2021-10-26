@@ -16,8 +16,8 @@ Target:
 - [x] Knowledge - React Class Component
 - [x] State
 - [x] Props (state, function)
-- [ ] Event Handling (onClick, onChange, onSubmit)
-- [ ] Conditional in React
+- [x] Event Handling (onClick, onChange, onSubmit)
+- [x] Conditional in React
 - [x] Looping in React
 - [x] Lifecycle component, (componentDidmount)
 - [x] Create server (json-server)
@@ -36,12 +36,12 @@ Target:
 
 Target:
 
-- [ ] Knowledge - React Function Component & Hooks
-- [ ] Membuat state dengan useState
-- [ ] Lifecycle dengan useEffect
+- [x] Knowledge - React Function Component & Hooks
+- [x] Membuat state dengan useState
+- [x] Lifecycle dengan useEffect
 - [ ] Custom hooks
 - [ ] Event Handling (onClick, onChange, onSubmit)
-- [ ] Refactoring user-side & admin-side
+- [x] Refactoring user-side & admin-side
 
 **Report:**
 
