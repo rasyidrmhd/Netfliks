@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function Login() {
+function Login(props) {
   const [inputLogin, setInputLogin] = useState({
     email: "",
     password: "",
@@ -10,10 +10,18 @@ function Login() {
   //   console.log("aku terpanggil");
   // }, [inputLogin]);
 
+  // const changeEmail = (e) => {
+  //   const value = e.target.value;
+  //   setInputLogin({ email: value });
+  //   console.log(inputLogin.email, "Masuk ke siniiiiii");
+  // };
+
   const changeInputLoginHandler = (e) => {
     const value = e.target.value;
     const name = e.target.name;
 
+    console.log(value, "ini valueeeee");
+    console.log(name, "ini atribut name nyaaa");
     setInputLogin({
       ...inputLogin,
       [name]: value,
@@ -22,6 +30,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.changeIsLoggedIn(true);
     console.log(inputLogin.email, ">>>>>>email");
     console.log(inputLogin.password, ">>>>>password");
   };

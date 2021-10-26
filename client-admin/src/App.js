@@ -4,9 +4,22 @@ import "./assets/css/sb-admin-2.min.css";
 import "./assets/vendor/fontawesome-free/css/all.css";
 import Login from "./views/Login";
 import HomePage from "./views/HomePage";
+import Genre from "./views/Genre";
+import Register from "./views/Register";
+import AddGenre from "./views/AddGenre";
+import AddMovie from "./views/AddMovie";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [page, setPage] = useState("home");
+
+  const changeIsLoggedIn = (value) => {
+    setIsLoggedIn(value);
+  };
+
+  const changePage = (value) => {
+    setPage(value);
+  };
 
   if (!isLoggedIn) {
     return (
@@ -21,15 +34,41 @@ function App() {
           backgroundPosition: "center",
         }}
       >
-        <Login></Login>
+        <Login changeIsLoggedIn={changeIsLoggedIn}></Login>
       </div>
     );
   } else {
-    return (
-      <div>
-        <HomePage></HomePage>
-      </div>
-    );
+    if (page === "home") {
+      return (
+        <div>
+          <HomePage changePage={changePage}></HomePage>
+        </div>
+      );
+    } else if (page === "genre") {
+      return (
+        <div>
+          <Genre changePage={changePage}></Genre>
+        </div>
+      );
+    } else if (page === "register") {
+      return (
+        <div>
+          <Register changePage={changePage}></Register>
+        </div>
+      );
+    } else if (page === "addGenre") {
+      return (
+        <div>
+          <AddGenre changePage={changePage}></AddGenre>
+        </div>
+      );
+    } else if (page === "addMovie") {
+      return (
+        <div>
+          <AddMovie changePage={changePage}></AddMovie>
+        </div>
+      );
+    }
   }
 }
 

@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
-function HomePage(props) {
-  const [movies, setMovies] = useState([]);
+function Genre(props) {
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    fetch(`${server}/movie`)
+    fetch(`${server}/genre`)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setMovies(data);
-        console.log(movies);
+        setGenres(data);
+        console.log(genres, "genressss");
       })
       .catch((err) => {});
   }, []);
@@ -27,19 +27,12 @@ function HomePage(props) {
           <div className="container-fluid mt-3">
             <div className="card o-hidden shadow mb-4 border-0" style={{ backgroundColor: "#212121", borderRadius: "20px" }}>
               <div className="card-header py-3 d-flex flex-row justify-content-between align-items-center" style={{ backgroundColor: "#212121" }}>
-                <h5 className="m-0 font-weight-bold text-danger">List Movies</h5>
-                <a
-                  href="#"
-                  class="btn btn-sm btn-danger btn-icon-split"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    props.changePage("addMovie");
-                  }}
-                >
+                <h5 className="m-0 font-weight-bold text-danger">List Genres</h5>
+                <a href="#" class="btn btn-sm btn-danger btn-icon-split">
                   <span class="icon">
                     <i class="fa fa-plus"></i>
                   </span>
-                  <span class="text">Add New Movie</span>
+                  <span class="text">Add New Genre</span>
                 </a>
               </div>
               <div className="card-body" style={{ backgroundColor: "#212121" }}>
@@ -49,33 +42,19 @@ function HomePage(props) {
                       <tr className="text-center border-0 text-white" style={{ backgroundColor: "#252525" }}>
                         <th>No</th>
                         <th>Image</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Genre</th>
-                        <th>Synopsis</th>
-                        <th>Rating</th>
-                        <th>Trailer</th>
+                        <th>Name</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {movies.map((movie, idx) => {
+                      {genres.map((genre, idx) => {
                         return (
                           <tr className="text-white text-center" style={{ backgroundColor: "#303030" }}>
-                            <td>{idx + 1}</td>
-                            <td>
-                              <img src={movie.imgUrl} alt="" style={{ width: "200px", borderRadius: "20px" }} />
+                            <td width="5%">{idx + 1}</td>
+                            <td width="20%">
+                              <img src={genre.imgUrl} alt="" style={{ width: "200px", borderRadius: "20px" }} />
                             </td>
-                            <td className="text-left">{movie.title}</td>
-                            <td>2</td>
-                            <td>{movie.GenreId}</td>
-                            <td className="text-left">{movie.synopsis}</td>
-                            <td>{movie.rating}</td>
-                            <td>
-                              <a href={movie.trailerUrl} className="btn btn-danger btn-circle" target="_blank">
-                                <i className="fas fa-play"></i>
-                              </a>
-                            </td>
+                            <td className="text-left">{genre.name}</td>
                             <td>
                               <a href="#" className="btn btn-success btn-circle m-1">
                                 <i class="fa fa-pencil-alt"></i>
@@ -100,4 +79,4 @@ function HomePage(props) {
   );
 }
 
-export default HomePage;
+export default Genre;
