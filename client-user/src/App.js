@@ -7,7 +7,7 @@ import HomePage from "./components/HomePage";
 export default class App extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ minHeight: "100vh", backgroundColor: "#212121", color: "white" }}>
         <HomePage></HomePage>
       </div>
     );

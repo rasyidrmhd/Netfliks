@@ -15,7 +15,7 @@ export default class MoviesCard extends React.Component {
         style={{ width: "20rem", height: "20rem", background: `url(${movie.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", borderRadius: "20px" }}
       >
         <div className="card-body text-center font-weight-bolder d-flex flex-column align-items-start justify-content-end text-white">
-          {movie.title}
+          <span style={{ textShadow: "3px 4px 10px #212121" }}>{movie.title}</span>
           <div>
             <i className="fas fa-star text-warning"></i>
             <i className="fas fa-star text-warning"></i>
