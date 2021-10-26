@@ -4,7 +4,7 @@ import defaultProfile from "../assets/profile/default.png";
 export default class Navbar extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-expand navbar-dark border-bottom border-secondary fixed-top" style={{ backgroundColor: "#212121" }}>
+      <nav className="navbar navbar-expand navbar-dark fixed-top" style={{ backgroundColor: "#212121" }}>
         <a className="navbar-brand text-danger font-weight-bolder" href="#" style={{ fontSize: 26 }}>
           Netfliks
         </a>

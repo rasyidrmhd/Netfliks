@@ -14,17 +14,17 @@ Struktur Folder:
 Target:
 
 - [x] Knowledge - React Class Component
-- [ ] State
-- [ ] Props (state, function)
+- [x] State
+- [x] Props (state, function)
 - [ ] Event Handling (onClick, onChange, onSubmit)
 - [ ] Conditional in React
 - [x] Looping in React
-- [ ] Lifecycle component, (componentDidmount)
+- [x] Lifecycle component, (componentDidmount)
 - [x] Create server (json-server)
-- [ ] Create react app for client-user (Styling)
+- [x] Create react app for client-user (Styling)
 - [ ] Create react app for client-admin (CRUD)
 - [x] Menentukan Thema Aplikasi
-- [ ] Menentukan Design dan pemilihan CSS Framework
+- [x] Menentukan Design dan pemilihan CSS Framework
 
 **Report:**
 
