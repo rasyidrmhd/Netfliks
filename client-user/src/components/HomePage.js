@@ -9,55 +9,20 @@ export default class HomePage extends React.Component {
 
     this.state = {
       genres: [],
-      movies: [
-        {
-          id: 1,
-          title: "Attack On Titan",
-          slug: "movie1",
-          synopsis: "Attack On Titan Synopsis",
-          trailerUrl: "google.com",
-          imgUrl: "google.com",
-          rating: 8.4,
-          genreId: 1,
-          authorId: 1,
-          createdAt: "12-12-2020",
-          updatedAt: "12-12-2020",
-        },
-        {
-          id: 2,
-          title: "Squid Game",
-          slug: "movie2",
-          synopsis: "Squid Game Synopsis",
-          trailerUrl: "google.com",
-          imgUrl: "google.com",
-          rating: 8.4,
-          genreId: 1,
-          authorId: 1,
-          createdAt: "12-12-2020",
-          updatedAt: "12-12-2020",
-        },
-        {
-          id: 3,
-          title: "Avengers: End Game",
-          slug: "movie2",
-          synopsis: "Avengers End Game Synopsis",
-          trailerUrl: "google.com",
-          imgUrl: "google.com",
-          rating: 8.4,
-          genreId: 1,
-          authorId: 1,
-          createdAt: "12-12-2020",
-          updatedAt: "12-12-2020",
-        },
-      ],
+      movies: [],
     };
   }
 
   async componentDidMount() {
-    const result = await fetch("http://localhost:3001/genre");
-    const data = await result.json();
-    this.setState({ genres: data });
+    const genres = await fetch("http://localhost:3001/genre");
+    const dataGenres = await genres.json();
+    this.setState({ genres: dataGenres });
     console.log(this.state.genres);
+
+    const movies = await fetch("http://localhost:3001/movie?rating=5");
+    const dataMovies = await movies.json();
+    this.setState({ movies: dataMovies });
+    console.log(this.state.movies);
   }
 
   handleClick = () => {
@@ -93,33 +58,17 @@ export default class HomePage extends React.Component {
             <span className="sr-only">Next</span>
           </a>
         </div>
-        <div className="d-flex flex-row flex-wrap justify-content-center">
+        <h4 className="container-fluid mt-3 mb-0">Genres</h4>
+        <div className="d-flex flex-row justify-content-center">
           {this.state.genres.map((genre) => {
             return <GenreCard genre={genre} key={genre.id}></GenreCard>;
           })}
         </div>
-        <h4 className="container-fluid mt-2">Top Rated</h4>
+        <h4 className="container-fluid mt-3 mb-0">Top Rated</h4>
         <div>
-          <div className="d-flex flex-row justify-content-center">
-            {this.state.genres.map((genre) => {
-              return (
-                <div
-                  className="card shadow my-3 mx-2 d-flex border-0"
-                  key={genre.id}
-                  style={{ width: "20rem", height: "20rem", background: `url(${genre.imgUrl})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", borderRadius: "20px" }}
-                >
-                  <div className="card-body text-center font-weight-bolder d-flex flex-column align-items-start justify-content-end">
-                    {genre.name}
-                    <div>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i>
-                      <i class="fas fa-star text-warning"></i> 5.0 / 5.0
-                    </div>
-                  </div>
-                </div>
-              );
+          <div className="d-flex flex-row justify-content-start" style={{ width: "90vw" }}>
+            {this.state.movies.map((movie) => {
+              return <MoviesCard movie={movie} key={movie.id}></MoviesCard>;
             })}
           </div>
         </div>

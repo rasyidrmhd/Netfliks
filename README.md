@@ -15,7 +15,7 @@ Target:
 
 - [x] Knowledge - React Class Component
 - [x] State
-- [ ] Props (state, function)
+- [x] Props (state, function)
 - [ ] Event Handling (onClick, onChange, onSubmit)
 - [ ] Conditional in React
 - [x] Looping in React
