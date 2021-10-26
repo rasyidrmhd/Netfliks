@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import GenreCard from "./GenreCard";
-import MovieCard from "./MovieCard";
+import Navbar from "../components/Navbar";
+import GenreCard from "../components/GenreCard";
+import MovieCard from "../components/MovieCard";
 import { server } from "../apis/server";
 
 function HomePage() {

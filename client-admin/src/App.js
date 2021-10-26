@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./assets/css/fontfamily.css";
 import "./assets/css/sb-admin-2.min.css";
 import "./assets/vendor/fontawesome-free/css/all.css";
-import Login from "./components/Login";
-import HomePage from "./components/HomePage";
+import Login from "./views/Login";
+import HomePage from "./views/HomePage";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   if (!isLoggedIn) {
     return (

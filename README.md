@@ -16,8 +16,8 @@ Target:
 - [x] Knowledge - React Class Component
 - [x] State
 - [x] Props (state, function)
-- [ ] Event Handling (onClick, onChange, onSubmit)
-- [ ] Conditional in React
+- [x] Event Handling (onClick, onChange, onSubmit)
+- [x] Conditional in React
 - [x] Looping in React
 - [x] Lifecycle component, (componentDidmount)
 - [x] Create server (json-server)
