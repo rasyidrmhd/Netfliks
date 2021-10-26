@@ -30,8 +30,7 @@ Target:
 
 ...
 
-> contoh: Hari ini saya belajar React Component. Saya memahami bagaimana cara React bekerja. Lifecycle yang sudah saya coba adalah componentDidMount yang digunakan untuk fetch data dst. Namun saya belum mencoba menggunakan onSubmit dikarenakan data yang didapat belum sesuai.
-> Pada tugas ini, saya memilih Tema A dengan mengambil referensi dari B. Saya juga akan menggunakan CSS Framework yaitu Tailwind CSS
+> Saya memilih tema movies (referensi dari Netflix) dengan menggunakan CSS Framework Bootstrap. Saya belajar setup project dengan menggunakan React App serta memecah component dengan menjadi beberapa file. Lifecycle yang sudah saya coba ada componentDidMount untuk fetch data dari json-server lalu disimpan ke state dan hasil datanya sudah saya tampilkan dengan menggunakan looping.
 
 ## W1D2
 
