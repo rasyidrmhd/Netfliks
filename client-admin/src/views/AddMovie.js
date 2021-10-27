@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
-function AddMovie(props) {
+export default function AddMovie(props) {
+  const history = useHistory();
   const [inputMovie, setInputMovie] = useState({
     title: "",
     slug: "",
@@ -41,6 +42,7 @@ function AddMovie(props) {
       })
       .then((data) => {
         console.log(data, "successss");
+        history.push("/movie");
       })
       .catch((err) => {
         console.log(err, "errorrrrrrr");
@@ -98,5 +100,3 @@ function AddMovie(props) {
     </div>
   );
 }
-
-export default AddMovie;

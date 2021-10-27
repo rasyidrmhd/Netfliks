@@ -22,7 +22,7 @@ Target:
 - [x] Lifecycle component, (componentDidmount)
 - [x] Create server (json-server)
 - [x] Create react app for client-user (Styling)
-- [ ] Create react app for client-admin (CRUD)
+- [x] Create react app for client-admin (CRUD)
 - [x] Menentukan Thema Aplikasi
 - [x] Menentukan Design dan pemilihan CSS Framework
 
@@ -52,7 +52,7 @@ Target:
 - [x] Knowledge - React-Router
 - [x] Membuat router user-side (min: home, detail)
 - [x] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
-- [ ] Membuat privateRoute untuk admin
+- [x] Membuat privateRoute untuk admin
 - [ ] Knowledge - Redux
 - [ ] Create Store
 - [ ] Create Reducer

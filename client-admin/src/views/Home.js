@@ -4,7 +4,7 @@ import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 import defaultProfile from "../assets/profile/default.png";
 
-function Home(props) {
+export default function Home(props) {
   const [users, setUsers] = useState([]);
   const [userId, setUserId] = useState(0);
 
@@ -110,5 +110,3 @@ function Home(props) {
     </div>
   );
 }
-
-export default Home;

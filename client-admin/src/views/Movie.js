@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
-function Movie(props) {
+export default function Movie(props) {
   const [movies, setMovies] = useState([]);
   const [movieId, setMovieId] = useState(0);
 
@@ -19,7 +19,9 @@ function Movie(props) {
       .then((data) => {
         console.log("success delete movie");
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err, "errorr delete movie");
+      });
   };
 
   useEffect(() => {
@@ -116,5 +118,3 @@ function Movie(props) {
     </div>
   );
 }
-
-export default Movie;

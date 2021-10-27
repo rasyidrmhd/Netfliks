@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
-function Register(props) {
+export default function Register(props) {
   const [inputRegister, setInputRegister] = useState({
     username: "",
     email: "",
@@ -100,5 +100,3 @@ function Register(props) {
     </div>
   );
 }
-
-export default Register;

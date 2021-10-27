@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
-function Login(props) {
+export default function Login(props) {
+  const history = useHistory();
   const [inputLogin, setInputLogin] = useState({
     email: "",
     password: "",
@@ -24,6 +26,8 @@ function Login(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     props.changeIsLoggedIn(true);
+    localStorage.setItem("access_token", "dummy_access_token");
+    history.push("/home");
     console.log(inputLogin.email, ">>>>>>email");
     console.log(inputLogin.password, ">>>>>password");
   };
@@ -66,5 +70,3 @@ function Login(props) {
     </div>
   );
 }
-
-export default Login;

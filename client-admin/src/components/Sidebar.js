@@ -1,8 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
 import defaultProfile from "../assets/profile/default.png";
 
-function Sidebar(props) {
+export default function Sidebar(props) {
+  const history = useHistory();
+  const logout = () => {
+    localStorage.removeItem("access_token");
+    history.push("/");
+  };
+
   return (
     <ul className="navbar-nav sidebar sidebar-dark accordion border-right fixed-top" id="accordionSidebar" style={{ backgroundColor: "#212121", color: "white" }}>
       <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/movie">
@@ -20,9 +27,16 @@ function Sidebar(props) {
         </a>
         <div id="collapseUser" className="collapse" data-parent="#accordionSidebar">
           <div className="bg-white py-2 collapse-inner rounded">
-            <NavLink className="collapse-item text-dark" to="/">
+            <a
+              href="#"
+              className="collapse-item text-dark"
+              onClick={(e) => {
+                e.preventDefault();
+                logout();
+              }}
+            >
               Logout
-            </NavLink>
+            </a>
           </div>
         </div>
       </li>
@@ -30,7 +44,7 @@ function Sidebar(props) {
       <NavLink className="nav-item text-decoration-none" activeClassName="nav-item active" to="/home">
         <span className="nav-link">
           <i className="fas fa-user-tie"></i>
-          &nbsp;<span>List Admin</span>
+          &nbsp;<span>List Admins</span>
         </span>
       </NavLink>
 
@@ -54,5 +68,3 @@ function Sidebar(props) {
     </ul>
   );
 }
-
-export default Sidebar;
