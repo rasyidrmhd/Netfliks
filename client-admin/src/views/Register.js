@@ -16,8 +16,7 @@ function Register(props) {
   });
 
   const changeInputRegisterHandler = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+    const { value, name } = e.target;
 
     setInputRegister({
       ...inputRegister,

@@ -28,8 +28,6 @@ Target:
 
 **Report:**
 
-...
-
 > Saya memilih tema movies (referensi dari Netflix) dengan menggunakan CSS Framework Bootstrap. Saya belajar setup project dengan menggunakan React App serta memecah component dengan menjadi beberapa file. Lifecycle yang sudah saya coba ada componentDidMount untuk fetch data dari json-server lalu disimpan ke state dan hasil datanya sudah saya tampilkan dengan menggunakan looping.
 
 ## W1D2
@@ -40,20 +38,20 @@ Target:
 - [x] Membuat state dengan useState
 - [x] Lifecycle dengan useEffect
 - [ ] Custom hooks
-- [ ] Event Handling (onClick, onChange, onSubmit)
+- [x] Event Handling (onClick, onChange, onSubmit)
 - [x] Refactoring user-side & admin-side
 
 **Report:**
 
-...
+> Hari ini saya fokus untuk melanjutkan layouting di halaman admin, mempelajari functional component + hooks (useState dan useEffect), penggunaan hooks saya sudah cukup mengerti namun untuk membuat custom hook belum saya coba.
 
 ## W1D3
 
 Target:
 
-- [ ] Knowledge - React-Router
-- [ ] Membuat router user-side (min: home, detail)
-- [ ] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
+- [x] Knowledge - React-Router
+- [x] Membuat router user-side (min: home, detail)
+- [x] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
 - [ ] Membuat privateRoute untuk admin
 - [ ] Knowledge - Redux
 - [ ] Create Store

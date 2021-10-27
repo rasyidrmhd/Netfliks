@@ -13,23 +13,30 @@ function Navbar() {
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav">
+          <li className="nav-item active">
+            <a className="nav-link" href="#">
+              <span className="mr-2 d-none d-lg-inline font-weight-bolder" id="displayName">
+                Home
+              </span>
+            </a>
+          </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
-              <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+              <span className="mr-2 d-none d-lg-inline font-weight-bolder" id="displayName">
                 Movies
               </span>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
-              <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+              <span className="mr-2 d-none d-lg-inline font-weight-bolder" id="displayName">
                 TV Series
               </span>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
-              <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+              <span className="mr-2 d-none d-lg-inline font-weight-bolder" id="displayName">
                 Animes
               </span>
             </a>
@@ -39,14 +46,14 @@ function Navbar() {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <a className="nav-link" href="#">
-              <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+              <span className="mr-2 d-none d-lg-inline font-weight-bolder" id="displayName">
                 Sign In
               </span>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
-              <span className="mr-2 d-none d-lg-inline text-white font-weight-bolder" id="displayName">
+              <span className="mr-2 d-none d-lg-inline font-weight-bolder" id="displayName">
                 Sign Up
               </span>
             </a>

@@ -11,8 +11,7 @@ function Login(props) {
   // }, [inputLogin]);
 
   const changeInputLoginHandler = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+    const { value, name } = e.target;
 
     // console.log(value, "ini valueeeee");
     // console.log(name, "ini atribut name nyaaa");

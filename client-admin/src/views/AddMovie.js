@@ -18,8 +18,7 @@ function AddMovie(props) {
   });
 
   const changeInputMovieHandler = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+    const { value, name } = e.target;
 
     setInputMovie({
       ...inputMovie,
