@@ -12,14 +12,13 @@ function Genre(props) {
       })
       .then((data) => {
         setGenres(data);
-        console.log(genres, "genressss");
       })
       .catch((err) => {});
   }, []);
 
   return (
     <div>
-      <Sidebar changePage={props.changePage}></Sidebar>
+      <Sidebar></Sidebar>
 
       <div className="d-flex flex-column" style={{ minHeight: "100vh", backgroundColor: "#252525", color: "white" }}>
         {/* Main content */}
@@ -28,14 +27,7 @@ function Genre(props) {
             <div className="card o-hidden shadow mb-4 border-0" style={{ backgroundColor: "#212121", borderRadius: "20px" }}>
               <div className="card-header py-3 d-flex flex-row justify-content-between align-items-center" style={{ backgroundColor: "#212121" }}>
                 <h5 className="m-0 font-weight-bold text-danger">List Genres</h5>
-                <a
-                  href="#"
-                  className="btn btn-sm btn-danger btn-icon-split"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    props.changePage("addGenre");
-                  }}
-                >
+                <a href="#" className="btn btn-sm btn-danger btn-icon-split">
                   <span className="icon">
                     <i className="fa fa-plus"></i>
                   </span>

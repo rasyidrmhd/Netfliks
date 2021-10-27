@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
@@ -10,6 +11,8 @@ function Register(props) {
     role: "admin",
     phoneNumber: "",
     address: "",
+    createdAt: new Date(),
+    updatedAt: new Date(),
   });
 
   const changeInputRegisterHandler = (e) => {
@@ -45,7 +48,7 @@ function Register(props) {
 
   return (
     <div>
-      <Sidebar changePage={props.changePage}></Sidebar>
+      <Sidebar></Sidebar>
 
       <div className="d-flex flex-column" style={{ minHeight: "100vh", backgroundColor: "#252525", color: "white" }}>
         {/* Main content */}
@@ -55,6 +58,12 @@ function Register(props) {
               <div className="card o-hidden shadow mb-4 border-0" style={{ backgroundColor: "#212121", borderRadius: "20px" }}>
                 <div className="card-header py-3 d-flex flex-row justify-content-between align-items-center" style={{ backgroundColor: "#212121" }}>
                   <h5 className="m-0 font-weight-bold text-danger">Register New Admin</h5>
+                  <Link className="btn btn-sm btn-danger btn-icon-split" to="/home">
+                    <span className="icon">
+                      <i className="fa fa-angle-left"></i>
+                    </span>
+                    <span className="text">Back</span>
+                  </Link>
                 </div>
                 <div className="card-body" style={{ backgroundColor: "#212121" }}>
                   <form onSubmit={submitHandler}>

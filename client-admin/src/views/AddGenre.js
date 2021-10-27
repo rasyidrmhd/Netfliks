@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 function AddGenre(props) {
   return (
     <div>
-      <Sidebar changePage={props.changePage}></Sidebar>
+      <Sidebar></Sidebar>
     </div>
   );
 }

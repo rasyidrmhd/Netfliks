@@ -1,14 +1,15 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import defaultProfile from "../assets/profile/default.png";
 
 function Sidebar(props) {
   return (
     <ul className="navbar-nav sidebar sidebar-dark accordion border-right fixed-top" id="accordionSidebar" style={{ backgroundColor: "#212121", color: "white" }}>
-      <a className="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-        <a className="navbar-brand text-danger" href="#" style={{ fontSize: 20 }}>
+      <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/movie">
+        <span className="navbar-brand text-danger" style={{ fontSize: 20 }}>
           Netfliks Admin
-        </a>
-      </a>
+        </span>
+      </Link>
 
       <hr className="sidebar-divider my-0" />
 
@@ -19,56 +20,35 @@ function Sidebar(props) {
         </a>
         <div id="collapseUser" className="collapse" data-parent="#accordionSidebar">
           <div className="bg-white py-2 collapse-inner rounded">
-            <a className="collapse-item" href="#">
+            <NavLink className="collapse-item text-dark" to="/">
               Logout
-            </a>
+            </NavLink>
           </div>
         </div>
       </li>
 
-      <li className="nav-item">
-        <a
-          className="nav-link"
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            props.changePage("register");
-          }}
-        >
+      <NavLink className="nav-item text-decoration-none" activeClassName="nav-item active" to="/home">
+        <span className="nav-link">
           <i className="fas fa-user-tie"></i>
-          &nbsp;<span>Register Admin</span>
-        </a>
-      </li>
+          &nbsp;<span>List Admin</span>
+        </span>
+      </NavLink>
 
       <hr className="sidebar-divider my-0" />
 
-      <li className="nav-item">
-        <a
-          className="nav-link"
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            props.changePage("genre");
-          }}
-        >
+      <NavLink className="nav-item text-decoration-none" activeClassName="nav-item active" to="/genre">
+        <span className="nav-link">
           <i className="fas fa-quote-right"></i>
-          &nbsp;<span>Genres</span>
-        </a>
-      </li>
+          &nbsp;<span>List Genres</span>
+        </span>
+      </NavLink>
 
-      <li className="nav-item">
-        <a
-          className="nav-link"
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            props.changePage("home");
-          }}
-        >
+      <NavLink className="nav-item text-decoration-none" activeClassName="nav-item active" to="/movie">
+        <span className="nav-link">
           <i className="fas fa-film"></i>
-          &nbsp;<span>Movies</span>
-        </a>
-      </li>
+          &nbsp;<span>List Movies</span>
+        </span>
+      </NavLink>
 
       <hr className="sidebar-divider d-none d-md-block" />
     </ul>

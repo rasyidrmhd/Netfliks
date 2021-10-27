@@ -10,18 +10,12 @@ function Login(props) {
   //   console.log("aku terpanggil");
   // }, [inputLogin]);
 
-  // const changeEmail = (e) => {
-  //   const value = e.target.value;
-  //   setInputLogin({ email: value });
-  //   console.log(inputLogin.email, "Masuk ke siniiiiii");
-  // };
-
   const changeInputLoginHandler = (e) => {
     const value = e.target.value;
     const name = e.target.name;
 
-    console.log(value, "ini valueeeee");
-    console.log(name, "ini atribut name nyaaa");
+    // console.log(value, "ini valueeeee");
+    // console.log(name, "ini atribut name nyaaa");
     setInputLogin({
       ...inputLogin,
       [name]: value,
