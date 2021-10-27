@@ -1,13 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function MovieCard(props) {
+  const history = useHistory();
   const { movie } = props;
+
   return (
     <a
       href="#"
       onClick={(e) => {
         e.preventDefault();
-        alert("Movie Click");
+        history.push(`/movie/${movie.id}`);
       }}
       className="card shadow my-3 mx-2 d-flex border-0 text-decoration-none"
       key={movie.id}

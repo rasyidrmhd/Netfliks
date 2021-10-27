@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import GenreCard from "../components/GenreCard";
 import MovieCard from "../components/MovieCard";
@@ -30,7 +31,8 @@ function HomePage() {
 
   return (
     <div style={{ paddingTop: "60px" }}>
-      <Navbar></Navbar>
+      <Navbar />
+
       <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
         <div className="carousel-inner align-items-center" style={{ height: "70vh" }}>
           <div className="carousel-item active">

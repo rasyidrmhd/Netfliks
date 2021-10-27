@@ -1,16 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
 export default function AddGenre(props) {
   const history = useHistory();
+  const { genreId } = useParams();
+
   const [inputGenre, setInputGenre] = useState({
     name: "",
     imgUrl: "",
     createdAt: new Date(),
     updatedAt: new Date(),
   });
+
+  useEffect(() => {
+    if (genreId) {
+      fetch(`${server}/genre/${genreId}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          setInputGenre(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   const changeInputGenreHandler = (e) => {
     const { value, name } = e.target;
@@ -24,8 +41,18 @@ export default function AddGenre(props) {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    fetch(`${server}/genre`, {
-      method: "POST",
+    let url;
+    let method;
+    if (genreId) {
+      url = `${server}/genre/${genreId}`;
+      method = "PUT";
+    } else {
+      url = `${server}/genre`;
+      method = "POST";
+    }
+
+    fetch(url, {
+      method,
       headers: {
         "Content-Type": "application/json",
       },
@@ -35,7 +62,7 @@ export default function AddGenre(props) {
         return response.json();
       })
       .then((data) => {
-        console.log(data, "success");
+        console.log("success post or put genre");
         history.push("/genre");
       })
       .catch((err) => {

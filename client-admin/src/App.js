@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Switch } from "react-router-dom";
 import "./assets/css/fontfamily.css";
 import "./assets/css/sb-admin-2.min.css";
 import "./assets/vendor/fontawesome-free/css/all.css";
@@ -10,8 +10,8 @@ import Home from "./views/Home";
 import Genre from "./views/Genre";
 import Movie from "./views/Movie";
 import Register from "./views/Register";
-import AddGenre from "./views/AddGenre";
-import AddMovie from "./views/AddMovie";
+import FormGenre from "./views/FormGenre";
+import FormMovie from "./views/FormMovie";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -47,14 +47,20 @@ function App() {
         <PrivatePage path="/genre">
           <Genre />
         </PrivatePage>
+        <PrivatePage path="/editGenre/:genreId">
+          <FormGenre />
+        </PrivatePage>
         <PrivatePage path="/addGenre">
-          <AddGenre />
+          <FormGenre />
         </PrivatePage>
         <PrivatePage path="/movie">
           <Movie />
         </PrivatePage>
+        <PrivatePage path="/editMovie/:movieId">
+          <FormMovie />
+        </PrivatePage>
         <PrivatePage path="/addMovie">
-          <AddMovie />
+          <FormMovie />
         </PrivatePage>
       </Switch>
     </div>

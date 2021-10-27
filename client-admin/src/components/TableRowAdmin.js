@@ -17,15 +17,6 @@ export default function TableRowAdmin(props) {
       <td>
         <a
           href="#"
-          className="btn btn-success btn-circle m-1"
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-        >
-          <i className="fa fa-pencil-alt"></i>
-        </a>
-        <a
-          href="#"
           className="btn btn-danger btn-circle m-1"
           onClick={(e) => {
             e.preventDefault();

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
 export default function AddMovie(props) {
   const history = useHistory();
+  const { movieId } = useParams();
+
   const [inputMovie, setInputMovie] = useState({
     title: "",
     slug: "",
@@ -18,6 +20,21 @@ export default function AddMovie(props) {
     updatedAt: new Date(),
   });
 
+  useEffect(() => {
+    if (movieId) {
+      fetch(`${server}/movie/${movieId}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          setInputMovie(data);
+        })
+        .catch((err) => {
+          console.log(err, "Errorrrrr");
+        });
+    }
+  }, []);
+
   const changeInputMovieHandler = (e) => {
     const { value, name } = e.target;
 
@@ -30,8 +47,18 @@ export default function AddMovie(props) {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    fetch(`${server}/movie`, {
-      method: "POST",
+    let url;
+    let method;
+    if (movieId) {
+      url = `${server}/movie/${movieId}`;
+      method = "PUT";
+    } else {
+      url = `${server}/movie`;
+      method = "POST";
+    }
+
+    fetch(url, {
+      method,
       headers: {
         "Content-Type": "application/json",
       },
@@ -41,7 +68,7 @@ export default function AddMovie(props) {
         return response.json();
       })
       .then((data) => {
-        console.log(data, "successss");
+        console.log("successss post or put movie");
         history.push("/movie");
       })
       .catch((err) => {

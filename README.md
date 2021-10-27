@@ -50,7 +50,7 @@ Target:
 Target:
 
 - [x] Knowledge - React-Router
-- [ ] Membuat router user-side (min: home, detail)
+- [x] Membuat router user-side (min: home, detail)
 - [x] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
 - [x] Membuat privateRoute untuk admin
 - [ ] Knowledge - Redux

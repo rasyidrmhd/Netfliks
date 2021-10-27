@@ -41,7 +41,7 @@ export default function Sidebar(props) {
         </div>
       </li>
 
-      <NavLink className="nav-item text-decoration-none" activeClassName="nav-item active" to="/home">
+      <NavLink className="nav-item text-decoration-none" to="/home">
         <span className="nav-link">
           <i className="fas fa-user-tie"></i>
           &nbsp;<span>List Admins</span>
@@ -50,14 +50,14 @@ export default function Sidebar(props) {
 
       <hr className="sidebar-divider my-0" />
 
-      <NavLink className="nav-item text-decoration-none" activeClassName="nav-item active" to="/genre">
+      <NavLink className="nav-item text-decoration-none" to="/genre">
         <span className="nav-link">
           <i className="fas fa-quote-right"></i>
           &nbsp;<span>List Genres</span>
         </span>
       </NavLink>
 
-      <NavLink className="nav-item text-decoration-none" activeClassName="nav-item active" to="/movie">
+      <NavLink className="nav-item text-decoration-none" to="/movie">
         <span className="nav-link">
           <i className="fas fa-film"></i>
           &nbsp;<span>List Movies</span>

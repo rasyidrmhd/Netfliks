@@ -1,4 +1,7 @@
+import { useHistory } from "react-router";
+
 export default function TableRowMovie(props) {
+  const history = useHistory();
   const { movie, idx, deleteMovieById } = props;
 
   return (
@@ -23,6 +26,7 @@ export default function TableRowMovie(props) {
           className="btn btn-success btn-circle m-1"
           onClick={(e) => {
             e.preventDefault();
+            history.push(`/editMovie/${movie.id}`);
           }}
         >
           <i className="fa fa-pencil-alt"></i>

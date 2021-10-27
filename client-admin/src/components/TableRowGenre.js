@@ -1,4 +1,7 @@
+import { useHistory } from "react-router";
+
 export default function TableRowGenre(props) {
+  const history = useHistory();
   const { genre, idx, deleteGenreById } = props;
 
   return (
@@ -14,6 +17,7 @@ export default function TableRowGenre(props) {
           className="btn btn-success btn-circle m-1"
           onClick={(e) => {
             e.preventDefault();
+            history.push(`/editGenre/${genre.id}`);
           }}
         >
           <i className="fa fa-pencil-alt"></i>
