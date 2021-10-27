@@ -15,19 +15,17 @@ export default function AddGenre(props) {
   });
 
   useEffect(() => {
-    if (genreId) {
-      fetch(`${server}/genre/${genreId}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setInputGenre(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, []);
+    fetch(`${server}/genre/${genreId}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setInputGenre(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [genreId]);
 
   const changeInputGenreHandler = (e) => {
     const { value, name } = e.target;
@@ -93,11 +91,11 @@ export default function AddGenre(props) {
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <label htmlFor="name">Name</label>
-                      <input id="name" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="name" value={inputGenre.name} onChange={changeInputGenreHandler} />
+                      <input id="name" type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter new genre name" name="name" value={inputGenre.name} onChange={changeInputGenreHandler} />
                     </div>
                     <div className="form-group">
                       <label htmlFor="imgUrl">Image Url</label>
-                      <input id="imgUrl" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="imgUrl" value={inputGenre.imgUrl} onChange={changeInputGenreHandler} />
+                      <input id="imgUrl" type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter new genre image url" name="imgUrl" value={inputGenre.imgUrl} onChange={changeInputGenreHandler} />
                     </div>
                     <button type="submit" className="btn btn-danger btn-block mr-2 rounded-pill">
                       Add

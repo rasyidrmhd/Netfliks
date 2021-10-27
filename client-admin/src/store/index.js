@@ -1,10 +1,18 @@
 import { createStore } from "redux";
+import reducer from "./reducer";
 
-const initialState = {};
+/*
 
-function reducer(state, action) {
-  return state;
-}
+case COUNTER_INCREMENT:
+  let newState = {...state}
+  newState.counter += action.payload
+  return newState
+ 
+// pendek
+case COUNTER_INCREMENT:
+  return { ...state, counter: state,.counter + action.payload }
+
+*/
 
 let store = createStore(reducer);
 

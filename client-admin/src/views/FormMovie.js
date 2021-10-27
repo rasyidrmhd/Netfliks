@@ -21,19 +21,17 @@ export default function AddMovie(props) {
   });
 
   useEffect(() => {
-    if (movieId) {
-      fetch(`${server}/movie/${movieId}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setInputMovie(data);
-        })
-        .catch((err) => {
-          console.log(err, "Errorrrrr");
-        });
-    }
-  }, []);
+    fetch(`${server}/movie/${movieId}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setInputMovie(data);
+      })
+      .catch((err) => {
+        console.log(err, "Errorrrrr");
+      });
+  }, [movieId]);
 
   const changeInputMovieHandler = (e) => {
     const { value, name } = e.target;
@@ -99,19 +97,38 @@ export default function AddMovie(props) {
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <label htmlFor="title">Title</label>
-                      <input id="title" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="title" value={inputMovie.title} onChange={changeInputMovieHandler} />
+                      <input id="title" type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter new movie title" name="title" value={inputMovie.title} onChange={changeInputMovieHandler} />
                     </div>
                     <div className="form-group">
                       <label htmlFor="synopsis">Synopsis</label>
-                      <textarea cols="30" rows="5" className="form-control border-0" name="synopsis" id="synopsis" onChange={changeInputMovieHandler} value={inputMovie.synopsis} style={{ borderRadius: "20px" }}></textarea>
+                      <textarea
+                        cols="30"
+                        rows="5"
+                        className="form-control border-0"
+                        placeholder="Enter new movie synopsis"
+                        name="synopsis"
+                        id="synopsis"
+                        onChange={changeInputMovieHandler}
+                        value={inputMovie.synopsis}
+                        style={{ borderRadius: "20px" }}
+                      ></textarea>
                     </div>
                     <div className="form-group">
                       <label htmlFor="trailerUrl">Trailer Url</label>
-                      <input id="trailerUrl" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="trailerUrl" value={inputMovie.trailerUrl} onChange={changeInputMovieHandler} />
+                      <input
+                        id="trailerUrl"
+                        type="text"
+                        className="form-control border-0 rounded-pill"
+                        autoComplete="off"
+                        placeholder="Enter new movie trailer url"
+                        name="trailerUrl"
+                        value={inputMovie.trailerUrl}
+                        onChange={changeInputMovieHandler}
+                      />
                     </div>
                     <div className="form-group">
                       <label htmlFor="imgUrl">Image Url</label>
-                      <input id="imgUrl" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="imgUrl" value={inputMovie.imgUrl} onChange={changeInputMovieHandler} />
+                      <input id="imgUrl" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="imgUrl" placeholder="Enter new movie image url" value={inputMovie.imgUrl} onChange={changeInputMovieHandler} />
                     </div>
                     <button type="submit" className="btn btn-danger btn-block mr-2 rounded-pill">
                       Add

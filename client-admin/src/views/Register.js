@@ -70,23 +70,59 @@ export default function Register(props) {
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <label htmlFor="username">Username</label>
-                      <input id="username" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="username" value={inputRegister.username} onChange={changeInputRegisterHandler} />
+                      <input
+                        id="username"
+                        type="text"
+                        className="form-control border-0 rounded-pill"
+                        autoComplete="off"
+                        name="username"
+                        placeholder="Enter new admin username"
+                        value={inputRegister.username}
+                        onChange={changeInputRegisterHandler}
+                      />
                     </div>
                     <div className="form-group">
                       <label htmlFor="email">Email</label>
-                      <input id="email" type="email" className="form-control border-0 rounded-pill" autoComplete="off" name="email" value={inputRegister.email} onChange={changeInputRegisterHandler} />
+                      <input id="email" type="email" className="form-control border-0 rounded-pill" autoComplete="off" name="email" placeholder="Enter new admin email" value={inputRegister.email} onChange={changeInputRegisterHandler} />
                     </div>
                     <div className="form-group">
                       <label htmlFor="password">Password</label>
-                      <input id="password" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="password" value={inputRegister.password} onChange={changeInputRegisterHandler} />
+                      <input
+                        id="password"
+                        type="text"
+                        className="form-control border-0 rounded-pill"
+                        autoComplete="off"
+                        name="password"
+                        placeholder="Enter new admin password"
+                        value={inputRegister.password}
+                        onChange={changeInputRegisterHandler}
+                      />
                     </div>
                     <div className="form-group">
                       <label htmlFor="phoneNumber">Phone Number</label>
-                      <input id="phoneNumber" type="number" className="form-control border-0 rounded-pill" autoComplete="off" name="phoneNumber" value={inputRegister.phoneNumber} onChange={changeInputRegisterHandler} />
+                      <input
+                        id="phoneNumber"
+                        type="number"
+                        className="form-control border-0 rounded-pill"
+                        autoComplete="off"
+                        name="phoneNumber"
+                        placeholder="Enter new admin phone number"
+                        value={inputRegister.phoneNumber}
+                        onChange={changeInputRegisterHandler}
+                      />
                     </div>
                     <div className="form-group">
                       <label htmlFor="address">Address</label>
-                      <input id="address" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="address" value={inputRegister.address} onChange={changeInputRegisterHandler} />
+                      <input
+                        id="address"
+                        type="text"
+                        className="form-control border-0 rounded-pill"
+                        autoComplete="off"
+                        name="address"
+                        placeholder="Enter new admin address"
+                        value={inputRegister.address}
+                        onChange={changeInputRegisterHandler}
+                      />
                     </div>
                     <button type="submit" className="btn btn-danger btn-block mr-2 rounded-pill">
                       Register

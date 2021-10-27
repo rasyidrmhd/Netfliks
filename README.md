@@ -53,14 +53,14 @@ Target:
 - [x] Membuat router user-side (min: home, detail)
 - [x] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
 - [x] Membuat privateRoute untuk admin
-- [ ] Knowledge - Redux
-- [ ] Create Store
-- [ ] Create Reducer
-- [ ] Create Action
+- [x] Knowledge - Redux
+- [x] Create Store
+- [x] Create Reducer
+- [x] Create Action
 
 **Report:**
 
-> Hari ini saya refactoring route dari menggunakan pengkondisian dalam app.js menjadi router dari React, saya juga sudah menggunakan privateRoute pada halaman-halaman admin untuk memproteksi halaman selain login dan mencoba menggunakan NavLink untuk membedakan link pada halaman yang sedang aktif.
+> Hari ini saya refactoring route dari menggunakan pengkondisian dalam app.js menjadi router dari React, saya juga sudah menggunakan privateRoute pada halaman-halaman admin untuk memproteksi halaman selain login dan mencoba menggunakan NavLink untuk membedakan link pada halaman yang sedang aktif. Redux baru mencoba seperti saat lecture (melakukan counter) namun sudah cukup memahami flow nya.
 
 ## W1D4
 
