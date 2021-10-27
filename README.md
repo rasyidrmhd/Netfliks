@@ -60,7 +60,7 @@ Target:
 
 **Report:**
 
-> Hari ini saya refactoring route dari menggunakan pengkondisian dalam app.js menjadi router dari React, saya juga sudah menggunakan privateRoute pada halaman-halaman admin untuk memproteksi halaman selain login dan mencoba menggunakan NavLink + activeClassName untuk membedakan link pada halaman yang sedang aktif.
+> Hari ini saya refactoring route dari menggunakan pengkondisian dalam app.js menjadi router dari React, saya juga sudah menggunakan privateRoute pada halaman-halaman admin untuk memproteksi halaman selain login dan mencoba menggunakan NavLink untuk membedakan link pada halaman yang sedang aktif.
 
 ## W1D4
 

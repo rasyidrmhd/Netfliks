@@ -14,7 +14,7 @@ function Navbar() {
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav">
-          <NavLink className="nav-item text-decoration-none" to="/">
+          <NavLink className="nav-item text-decoration-none" to="/" exact={true}>
             <span className="nav-link" href="#">
               <span className="mr-2 d-none d-lg-inline font-weight-bolder">Home</span>
             </span>
