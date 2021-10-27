@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
 export default function Register(props) {
+  const history = useHistory();
   const [inputRegister, setInputRegister] = useState({
     username: "",
     email: "",
@@ -38,7 +39,8 @@ export default function Register(props) {
         return response.json();
       })
       .then((data) => {
-        console.log(data, "successss");
+        console.log(data, "successss register");
+        history.push("home");
       })
       .catch((err) => {
         console.log(err, "errorrrrrrr");

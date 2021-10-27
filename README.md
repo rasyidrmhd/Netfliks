@@ -50,7 +50,7 @@ Target:
 Target:
 
 - [x] Knowledge - React-Router
-- [x] Membuat router user-side (min: home, detail)
+- [ ] Membuat router user-side (min: home, detail)
 - [x] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
 - [x] Membuat privateRoute untuk admin
 - [ ] Knowledge - Redux
@@ -60,7 +60,7 @@ Target:
 
 **Report:**
 
-...
+> Hari ini saya refactoring route dari menggunakan pengkondisian dalam app.js menjadi router dari React, saya juga sudah menggunakan privateRoute pada halaman-halaman admin untuk memproteksi halaman selain login dan mencoba menggunakan NavLink + activeClassName untuk membedakan link pada halaman yang sedang aktif.
 
 ## W1D4
 

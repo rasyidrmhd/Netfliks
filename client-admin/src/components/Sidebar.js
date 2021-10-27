@@ -12,7 +12,7 @@ export default function Sidebar(props) {
 
   return (
     <ul className="navbar-nav sidebar sidebar-dark accordion border-right fixed-top" id="accordionSidebar" style={{ backgroundColor: "#212121", color: "white" }}>
-      <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/movie">
+      <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/home">
         <span className="navbar-brand text-danger" style={{ fontSize: 20 }}>
           Netfliks Admin
         </span>

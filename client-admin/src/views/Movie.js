@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
+import TableRowMovie from "../components/TableRowMovie";
 
 export default function Movie(props) {
   const [movies, setMovies] = useState([]);
@@ -72,39 +73,7 @@ export default function Movie(props) {
                     </thead>
                     <tbody>
                       {movies.map((movie, idx) => {
-                        return (
-                          <tr key={movie.id} className="text-white text-center" style={{ backgroundColor: "#303030" }}>
-                            <td>{idx + 1}</td>
-                            <td>
-                              <img src={movie.imgUrl} alt="" style={{ width: "200px", borderRadius: "20px" }} />
-                            </td>
-                            <td className="text-left">{movie.title}</td>
-                            <td>2</td>
-                            <td>{movie.GenreId}</td>
-                            <td className="text-left">{movie.synopsis}</td>
-                            <td>{movie.rating}</td>
-                            <td>
-                              <a href={movie.trailerUrl} className="btn btn-danger btn-circle" target="_blank">
-                                <i className="fas fa-play"></i>
-                              </a>
-                            </td>
-                            <td>
-                              <a href="#" className="btn btn-success btn-circle m-1">
-                                <i className="fa fa-pencil-alt"></i>
-                              </a>
-                              <a
-                                href="#"
-                                className="btn btn-danger btn-circle m-1"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  deleteMovieById(movie.id);
-                                }}
-                              >
-                                <i className="fa fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
-                        );
+                        return <TableRowMovie key={movie.id} movie={movie} idx={idx} deleteMovieById={deleteMovieById} />;
                       })}
                     </tbody>
                   </table>
