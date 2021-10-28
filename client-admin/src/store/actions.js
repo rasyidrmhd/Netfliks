@@ -61,7 +61,25 @@ export function fetchGenre() {
   };
 }
 
-export function fetchGenreById(id) {}
+export function setGenreById(payload) {
+  return {
+    type: SET_GENRE_BY_ID,
+    payload,
+  };
+}
+
+export function fetchGenreById(id) {
+  return (dispatch, getState) => {
+    fetch(`${server}/genre/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(setGenreById(data));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+}
 
 export function deleteGenre(id) {
   return (dispatch, getState) => {

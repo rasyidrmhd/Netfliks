@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchGenreById } from "../store/actions";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 
-export default function AddGenre(props) {
+export default function AddGenre() {
+  const dispatch = useDispatch();
   const history = useHistory();
+  const { genreById } = useSelector((state) => state);
   const { genreId } = useParams();
 
   const [inputGenre, setInputGenre] = useState({
@@ -16,18 +20,15 @@ export default function AddGenre(props) {
 
   useEffect(() => {
     if (genreId) {
-      fetch(`${server}/genre/${genreId}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setInputGenre(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      dispatch(fetchGenreById(genreId));
     }
   }, []);
+
+  useEffect(() => {
+    if (genreId) {
+      setInputGenre({ ...genreById });
+    }
+  }, [genreById]);
 
   const changeInputGenreHandler = (e) => {
     const { value, name } = e.target;
@@ -70,6 +71,13 @@ export default function AddGenre(props) {
       });
   };
 
+  let formContent;
+  if (genreId) {
+    formContent = { title: `Edit Genre ${genreById.name}`, button: "Edit" };
+  } else {
+    formContent = { title: "Add New Genre", button: "Add" };
+  }
+
   return (
     <div>
       <Sidebar></Sidebar>
@@ -81,7 +89,7 @@ export default function AddGenre(props) {
             <div className="mt-3">
               <div className="card o-hidden shadow mb-4 border-0" style={{ backgroundColor: "#212121", borderRadius: "20px" }}>
                 <div className="card-header py-3 d-flex flex-row justify-content-between align-items-center" style={{ backgroundColor: "#212121" }}>
-                  <h5 className="m-0 font-weight-bold text-danger">Add New Genre</h5>
+                  <h5 className="m-0 font-weight-bold text-danger">{formContent.title}</h5>
                   <Link className="btn btn-sm btn-danger btn-icon-split" to="/genre">
                     <span className="icon">
                       <i className="fa fa-angle-left"></i>
@@ -93,14 +101,23 @@ export default function AddGenre(props) {
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <label htmlFor="name">Name</label>
-                      <input id="name" type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter new genre name" name="name" value={inputGenre.name} onChange={changeInputGenreHandler} />
+                      <input id="name" type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter new genre name" name="name" defaultValue={inputGenre.name} onChange={changeInputGenreHandler} />
                     </div>
                     <div className="form-group">
                       <label htmlFor="imgUrl">Image Url</label>
-                      <input id="imgUrl" type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter new genre image url" name="imgUrl" value={inputGenre.imgUrl} onChange={changeInputGenreHandler} />
+                      <input
+                        id="imgUrl"
+                        type="text"
+                        className="form-control border-0 rounded-pill"
+                        autoComplete="off"
+                        placeholder="Enter new genre image url"
+                        name="imgUrl"
+                        defaultValue={inputGenre.imgUrl}
+                        onChange={changeInputGenreHandler}
+                      />
                     </div>
                     <button type="submit" className="btn btn-danger btn-block mr-2 rounded-pill">
-                      Add
+                      {formContent.button}
                     </button>
                   </form>
                 </div>

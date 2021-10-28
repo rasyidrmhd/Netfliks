@@ -8,6 +8,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/user", user);
-route.use("/movie", movie);
+router.use("/movie", movie);
 
 module.exports = router;

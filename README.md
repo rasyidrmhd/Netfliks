@@ -67,12 +67,12 @@ Target:
 Target:
 
 - [x] Knowledge - Redux-thunk (handle async)
-- [ ] Create server using express.js, postgreSQL and Sequelize
+- [x] Create server using express.js, postgreSQL and Sequelize
 - [ ] Describe associations between tables
 
 **Report:**
 
-...
+> Hari ini saya mempelajari cara penggunaan redux thunk untuk melakukan fetching data ke database. Sudah memulai pembuatan server menggunakan ExpressJs, Postgres, dan Sequelize
 
 ## W1D5
 
