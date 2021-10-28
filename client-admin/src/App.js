@@ -9,7 +9,7 @@ import Login from "./views/Login";
 import Home from "./views/Home";
 import Genre from "./views/Genre";
 import Movie from "./views/Movie";
-import Register from "./views/Register";
+import FormRegister from "./views/FormRegister";
 import FormGenre from "./views/FormGenre";
 import FormMovie from "./views/FormMovie";
 
@@ -42,7 +42,7 @@ function App() {
           <Home />
         </PrivatePage>
         <PrivatePage path="/register">
-          <Register />
+          <FormRegister />
         </PrivatePage>
         <PrivatePage path="/genre">
           <Genre />

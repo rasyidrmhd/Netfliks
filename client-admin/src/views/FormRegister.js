@@ -89,7 +89,7 @@ export default function Register(props) {
                       <label htmlFor="password">Password</label>
                       <input
                         id="password"
-                        type="text"
+                        type="password"
                         className="form-control border-0 rounded-pill"
                         autoComplete="off"
                         name="password"

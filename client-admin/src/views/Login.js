@@ -12,15 +12,9 @@ export default function Login(props) {
     password: "",
   });
 
-  // useEffect(() => {
-  //   console.log("aku terpanggil");
-  // }, [inputLogin]);
-
   const changeInputLoginHandler = (e) => {
     const { value, name } = e.target;
 
-    // console.log(value, "ini valueeeee");
-    // console.log(name, "ini atribut name nyaaa");
     setInputLogin({
       ...inputLogin,
       [name]: value,
@@ -72,7 +66,6 @@ export default function Login(props) {
                   onClick={(e) => {
                     e.preventDefault();
                     dispatch(incrementCounter(10));
-                    console.log(state.counter);
                   }}
                 >
                   Test State
