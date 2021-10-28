@@ -10,6 +10,28 @@
       "address": "Ujungberung",
       "createdAt": "12-12-2020",
       "updatedAt": "12-12-2020"
+    },
+    {
+      "username": "",
+      "email": "",
+      "password": "",
+      "role": "admin",
+      "phoneNumber": "",
+      "address": "",
+      "createdAt": "2021-10-28T07:58:35.713Z",
+      "updatedAt": "2021-10-28T07:58:35.713Z",
+      "id": 2
+    },
+    {
+      "username": "",
+      "email": "",
+      "password": "",
+      "role": "admin",
+      "phoneNumber": "",
+      "address": "",
+      "createdAt": "2021-10-28T07:58:37.224Z",
+      "updatedAt": "2021-10-28T07:58:37.224Z",
+      "id": 3
     }
   ],
   "movie": [

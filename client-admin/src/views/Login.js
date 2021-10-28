@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { incrementCounter } from "../store/actions";
 
 export default function Login(props) {
   const history = useHistory();
-  const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const [inputLogin, setInputLogin] = useState({
     email: "",
@@ -37,7 +35,7 @@ export default function Login(props) {
           <div className="card-body p-0">
             <div className="p-5">
               <div className="text-center">
-                <h1 className="h2 text-danger font-weight-bolder">Netfliks Admin {state.counter}</h1>
+                <h1 className="h2 text-danger font-weight-bolder">Netfliks Admin</h1>
               </div>
               <form className="mt-4 user" onSubmit={submitHandler}>
                 <div className="form-group">
@@ -59,16 +57,6 @@ export default function Login(props) {
                 </div>
                 <button type="submit" className="btn btn-danger btn-block rounded-pill">
                   Sign In
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-success btn-block rounded-pill"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    dispatch(incrementCounter(10));
-                  }}
-                >
-                  Test State
                 </button>
               </form>
             </div>

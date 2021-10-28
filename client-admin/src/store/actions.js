@@ -1,12 +1,5 @@
 import { server } from "../apis/server";
-import { COUNTER_INCREMENT, SET_USER, DELETE_USER } from "./actionType";
-
-export function incrementCounter(payload) {
-  return {
-    type: COUNTER_INCREMENT,
-    payload,
-  };
-}
+import { SET_USER, SET_GENRE } from "./actionType";
 
 export function setUser(payload) {
   return {
@@ -21,10 +14,49 @@ export function fetchUser() {
       .then((response) => response.json())
       .then((data) => {
         dispatch(setUser(data));
-        console.log(data, "FROM ACTIONSS");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err, "from actions fetchUser");
+      });
+  };
+}
+
+export function deleteUser(id) {
+  return (dispatch, getState) => {
+    fetch(`${server}/user/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        dispatch(fetchUser());
+        console.log("success delete user");
+      })
+      .catch((err) => {
+        console.log(err, "from action deleteUser");
+      });
+  };
+}
+
+export function setGenre(payload) {
+  return {
+    type: SET_GENRE,
+    payload,
+  };
+}
+
+export function fetchGenre() {
+  return (dispatch, getState) => {
+    fetch(`${server}/genre`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        dispatch(setGenre(data));
+      })
+      .catch((err) => {
+        console.log(err, "from action fetchGenre");
       });
   };
 }

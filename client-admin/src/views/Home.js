@@ -1,43 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchUser, deleteUser } from "../store/actions";
 import { Link } from "react-router-dom";
-import { server } from "../apis/server";
-import { fetchUser } from "../store/actions";
 import Sidebar from "../components/Sidebar";
 import TableRowAdmin from "../components/TableRowAdmin";
 
 export default function Home(props) {
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state);
-  // const [users, setUsers] = useState([]);
-  const [userId, setUserId] = useState(0);
 
   const deleteUserById = (id) => {
-    setUserId(id);
-
-    fetch(`${server}/user/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log("success delete user");
-      })
-      .catch((err) => {});
+    dispatch(deleteUser(id));
   };
 
   useEffect(() => {
-    // fetch(`${server}/user`)
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     setUsers(data);
-    //   })
-    //   .catch((err) => {});
     dispatch(fetchUser());
-  }, [userId]);
+  }, []);
 
   return (
     <div>
