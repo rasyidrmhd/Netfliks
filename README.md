@@ -66,7 +66,7 @@ Target:
 
 Target:
 
-- [ ] Knowledge - Redux-thunk (handle async)
+- [x] Knowledge - Redux-thunk (handle async)
 - [ ] Create server using express.js, postgreSQL and Sequelize
 - [ ] Describe associations between tables
 

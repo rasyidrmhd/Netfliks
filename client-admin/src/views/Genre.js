@@ -1,36 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGenre } from "../store/actions";
+import { fetchGenre, deleteGenre } from "../store/actions";
 import { Link } from "react-router-dom";
-import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 import TableRowGenre from "../components/TableRowGenre";
 
 export default function Genre(props) {
   const dispatch = useDispatch();
   const { genres } = useSelector((state) => state);
-  const [genreId, setGenreId] = useState(0);
 
   const deleteGenreById = (id) => {
-    setGenreId(id);
-
-    fetch(`${server}/genre/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log("success delete genre");
-      })
-      .catch((err) => {
-        console.log(err, "error delete genre");
-      });
+    dispatch(deleteGenre(id));
   };
 
   useEffect(() => {
     dispatch(fetchGenre());
-  }, [genreId]);
+  }, []);
 
   return (
     <div>

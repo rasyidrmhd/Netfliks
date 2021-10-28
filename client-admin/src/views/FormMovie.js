@@ -21,17 +21,19 @@ export default function AddMovie(props) {
   });
 
   useEffect(() => {
-    fetch(`${server}/movie/${movieId}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setInputMovie(data);
-      })
-      .catch((err) => {
-        console.log(err, "Errorrrrr");
-      });
-  }, [movieId]);
+    if (movieId) {
+      fetch(`${server}/movie/${movieId}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          setInputMovie(data);
+        })
+        .catch((err) => {
+          console.log(err, "Errorrrrr");
+        });
+    }
+  }, []);
 
   const changeInputMovieHandler = (e) => {
     const { value, name } = e.target;

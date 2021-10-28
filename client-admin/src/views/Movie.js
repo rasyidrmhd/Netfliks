@@ -1,41 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovie, deleteMovie } from "../store/actions";
 import { Link } from "react-router-dom";
-import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
 import TableRowMovie from "../components/TableRowMovie";
 
 export default function Movie(props) {
-  const [movies, setMovies] = useState([]);
-  const [movieId, setMovieId] = useState(0);
+  const dispatch = useDispatch();
+  const { movies } = useSelector((state) => state);
 
   const deleteMovieById = (id) => {
-    setMovieId(id);
-
-    fetch(`${server}/movie/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log("success delete movie");
-      })
-      .catch((err) => {
-        console.log(err, "errorr delete movie");
-      });
+    dispatch(deleteMovie(id));
   };
 
   useEffect(() => {
-    fetch(`${server}/movie`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setMovies(data);
-        // console.log(movies);
-      })
-      .catch((err) => {});
-  }, [movieId]);
+    dispatch(fetchMovie());
+  }, []);
 
   return (
     <div>

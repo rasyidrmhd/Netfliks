@@ -15,17 +15,19 @@ export default function AddGenre(props) {
   });
 
   useEffect(() => {
-    fetch(`${server}/genre/${genreId}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setInputGenre(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [genreId]);
+    if (genreId) {
+      fetch(`${server}/genre/${genreId}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          setInputGenre(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   const changeInputGenreHandler = (e) => {
     const { value, name } = e.target;
