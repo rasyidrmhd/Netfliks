@@ -37,7 +37,7 @@ Target:
 - [x] Knowledge - React Function Component & Hooks
 - [x] Membuat state dengan useState
 - [x] Lifecycle dengan useEffect
-- [ ] Custom hooks
+- [x] Custom hooks
 - [x] Event Handling (onClick, onChange, onSubmit)
 - [x] Refactoring user-side & admin-side
 
@@ -68,7 +68,7 @@ Target:
 
 - [x] Knowledge - Redux-thunk (handle async)
 - [x] Create server using express.js, postgreSQL and Sequelize
-- [ ] Describe associations between tables
+- [x] Describe associations between tables
 
 **Report:**
 
@@ -78,9 +78,9 @@ Target:
 
 Target:
 
-- [ ] Knowledge - SQL Transaction
+- [x] Knowledge - SQL Transaction
 - [ ] Membuat transaction saat membuat entitas baru pada main table. Pastikan ada assosiasi di dalamnya
-- [ ] LC Simulation
+- [x] LC Simulation
 
 **Report:**
 
