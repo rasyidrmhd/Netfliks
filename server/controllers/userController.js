@@ -55,12 +55,27 @@ class UserController {
 
   static async getAllUser(req, res, next) {
     try {
-    } catch (err) {}
+      const result = await User.findAll();
+      res.status(200).json(result);
+    } catch (err) {
+      next(err);
+    }
   }
 
   static async getUserData(req, res, next) {
     try {
-    } catch (err) {}
+      const { id } = req.user;
+
+      const result = await User.findOne({
+        where: { id },
+        attributes: {
+          exclude: ["password", "createdAt", "updatedAt"],
+        },
+      });
+      res.status(200).json(result);
+    } catch (err) {
+      next(err);
+    }
   }
 }
 
