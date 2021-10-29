@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGenreById } from "../store/actions";
+import { fetchGenreById } from "../store/actions/genreAction";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
@@ -26,7 +26,7 @@ export default function AddGenre() {
 
   useEffect(() => {
     if (genreId) {
-      setInputGenre({ ...genreById });
+      setInputGenre(genreById);
     }
   }, [genreById]);
 

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovie, deleteMovie } from "../store/actions";
+import { fetchMovie, deleteMovie } from "../store/actions/movieAction";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import TableRowMovie from "../components/TableRowMovie";
 
 export default function Movie(props) {
   const dispatch = useDispatch();
-  const { movies } = useSelector((state) => state);
+  const { movies } = useSelector((state) => state.movieReducer);
 
   const deleteMovieById = (id) => {
     dispatch(deleteMovie(id));

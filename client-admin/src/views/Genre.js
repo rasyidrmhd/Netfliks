@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGenre, deleteGenre } from "../store/actions";
+import { fetchGenre, deleteGenre } from "../store/actions/genreAction";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import TableRowGenre from "../components/TableRowGenre";
 
 export default function Genre(props) {
   const dispatch = useDispatch();
-  const { genres } = useSelector((state) => state);
+  const { genres } = useSelector((state) => state.genreReducer);
 
   const deleteGenreById = (id) => {
     dispatch(deleteGenre(id));
