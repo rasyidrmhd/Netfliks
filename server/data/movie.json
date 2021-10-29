@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "Avengers: End Game",
+    "slug": "avengers:-end-game",
+    "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+    "trailerUrl": "https://www.youtube.com/watch?v=TcMBFSGVi1c",
+    "imgUrl": "https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810",
+    "rating": 5,
+    "category": "Movies",
+    "GenreId": 4,
+    "AuthorId": 1
+  },
+  {
+    "id": 2,
+    "title": "Free Guy",
+    "slug": "free-guy",
+    "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+    "trailerUrl": "https://www.youtube.com/watch?v=X2m-08cOAbc",
+    "imgUrl": "https://m.media-amazon.com/images/M/MV5BOTY2NzFjODctOWUzMC00MGZhLTlhNjMtM2Y2ODBiNGY1ZWRiXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+    "rating": 4,
+    "category": "Movies",
+    "GenreId": 2,
+    "AuthorId": 1
+  },
+  {
+    "id": 3,
+    "title": "Sonic The Hedgehog",
+    "slug": "sonic-the-hedgehog",
+    "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+    "trailerUrl": "https://www.youtube.com/watch?v=szby7ZHLnkA",
+    "imgUrl": "https://i2.wp.com/mariviu.com/wp-content/uploads/2020/02/s8-1.jpg?fit=1024%2C576&ssl=1",
+    "rating": 5,
+    "category": "Movies",
+    "GenreId": 3,
+    "AuthorId": 1
+  },
+  {
+    "id": 4,
+    "title": "Your Name",
+    "slug": "your-name",
+    "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+    "trailerUrl": "https://www.youtube.com/watch?v=NooIc3dMncc",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/id/0/0b/Your_Name_poster.png",
+    "rating": 3,
+    "category": "Animes",
+    "GenreId": 5,
+    "AuthorId": 1
+  },
+  {
+    "id": 5,
+    "title": "Captain America: Winter Soldier",
+    "slug": "captain-america:-winter-soldier",
+    "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+    "trailerUrl": "https://www.youtube.com/watch?v=tbayiPxkUMM",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/id/e/e8/Captain_America_The_Winter_Soldier.jpg",
+    "rating": 0,
+    "category": "Movies",
+    "GenreId": 1,
+    "AuthorId": 1
+  },
+  {
+    "id": 6,
+    "title": "Deadpool",
+    "slug": "deadpool",
+    "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+    "trailerUrl": "https://www.youtube.com/watch?v=ONHBaC-pfsk",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/id/4/46/Deadpool_poster.jpg",
+    "rating": 3,
+    "category": "Movies",
+    "GenreId": 2,
+    "AuthorId": 1
+  },
+  {
+    "id": 7,
+    "title": "Squid Game",
+    "slug": "squid-game",
+    "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
+    "trailerUrl": "https://www.youtube.com/watch?v=oqxAJKy0ii4",
+    "imgUrl": "https://i.mydramalist.com/X6vkX_4c.jpg?v=1",
+    "rating": 3,
+    "category": "TV Series",
+    "GenreId": 1,
+    "AuthorId": 1
+  }
+]

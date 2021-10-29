@@ -17,17 +17,21 @@ module.exports = {
         allowNull: false,
       },
       synopsis: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       trailerUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       imgUrl: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       rating: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      category: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
       GenreId: {

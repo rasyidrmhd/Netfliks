@@ -5,11 +5,16 @@ const errorHandler = (err, req, res, next) => {
         res.status(400).json({ message: ["Username already registered"] });
       } else if (err.errors[0].path === "email") {
         res.status(400).json({ message: ["Email already registered"] });
+      } else if (err.errors[0].path === "name") {
+        res.status(400).json({ message: ["Genre already exist"] });
       }
       break;
     case "SequelizeValidationError":
       const message = err.errors.map((err) => err.message);
       res.status(400).json({ message });
+      break;
+    case "genreExist":
+      res.status(400).json({ message: ["Genre already exist"] });
       break;
     case "emailEmpty":
       res.status(400).json({ message: "Email / username is required" });
@@ -32,8 +37,11 @@ const errorHandler = (err, req, res, next) => {
     case "Unauthorized":
       res.status(403).json({ message: "You have no permission access" });
       break;
-    case "Movie not found":
-      res.status(404).json({ message: err.name });
+    case "movieNotFound":
+      res.status(404).json({ message: "Movie not found" });
+      break;
+    case "genreNotFound":
+      res.status(404).json({ message: "Genre not found" });
       break;
     default:
       res.status(500).json({ message: err.message });
