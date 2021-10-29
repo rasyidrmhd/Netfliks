@@ -98,7 +98,7 @@ class GenreController {
       const found = await Genre.findOne({ where: { id } });
       if (found) {
         const result = await Genre.destroy({ where: { id } });
-        res.status(200).json({ message: `${found.name} success to delete` });
+        res.status(200).json({ message: `${found.name} success to deleted` });
       } else {
         throw { name: "genreNotFound" };
       }

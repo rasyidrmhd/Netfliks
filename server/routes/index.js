@@ -9,9 +9,9 @@ const movie = require("./movie");
 //   res.send("Hello Rakaaa");
 // });
 
-router.use("/user", user);
-router.use("/genre", genre);
-router.use("/movie", movie);
+router.use("/users", user);
+router.use("/genres", genre);
+router.use("/movies", movie);
 router.use(errorHandler);
 
 module.exports = router;

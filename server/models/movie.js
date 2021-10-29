@@ -1,5 +1,5 @@
 "use strict";
-const { Model } = require("sequelize");
+const { Model, where } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Movie extends Model {
     /**
@@ -29,15 +29,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       slug: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            msg: "Slug is required",
-          },
-          notNull: {
-            msg: "Slug is required",
-          },
-        },
       },
       synopsis: {
         type: DataTypes.STRING,
@@ -53,28 +44,86 @@ module.exports = (sequelize, DataTypes) => {
       },
       trailerUrl: {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Trailer Url is required",
+          },
+          notNull: {
+            msg: "Trailer Url is required",
+          },
+        },
       },
       imgUrl: {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Img Url is required",
+          },
+          notNull: {
+            msg: "Img Url is required",
+          },
+        },
       },
       rating: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
+          notNull: {
+            msg: "Rating is required",
+          },
+          notEmpty: {
+            msg: "Rating is required",
+          },
           min: {
             args: 1,
-            msg: "Rating minimal 1",
+            msg: "Minimal movie's rating is 1",
           },
         },
       },
       category: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Category is required",
+          },
+          notNull: {
+            msg: "Category is required",
+          },
+        },
       },
       GenreId: DataTypes.STRING,
       AuthorId: DataTypes.STRING,
     },
     {
+      hooks: {
+        beforeCreate: (movie, options) => {
+          let slug = movie.title.toLowerCase().split(" ").join("-");
+          movie.slug = slug;
+        },
+        afterCreate: (movie, options) => {
+          let slug = movie.title.toLowerCase().split(" ").join("-");
+          slug += `-${movie.id}`;
+          Movie.update(
+            {
+              slug: slug,
+            },
+            { where: { id: movie.id } }
+          );
+        },
+        afterUpdate: (movie, options) => {
+          let slug = movie.title.toLowerCase().split(" ").join("-");
+          slug += `-${movie.id}`;
+          Movie.update(
+            {
+              slug: slug,
+            },
+            { where: { id: movie.id } }
+          );
+        },
+      },
       sequelize,
       modelName: "Movie",
     }
