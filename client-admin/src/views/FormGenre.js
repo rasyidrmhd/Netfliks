@@ -14,8 +14,6 @@ export default function AddGenre() {
   const [inputGenre, setInputGenre] = useState({
     name: "",
     imgUrl: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
   });
 
   useEffect(() => {

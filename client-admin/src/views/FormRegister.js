@@ -12,8 +12,6 @@ export default function Register(props) {
     role: "admin",
     phoneNumber: "",
     address: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
   });
 
   const changeInputRegisterHandler = (e) => {

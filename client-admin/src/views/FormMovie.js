@@ -16,8 +16,6 @@ export default function AddMovie(props) {
     rating: 0,
     GenreId: 1,
     AuthorId: 1,
-    createdAt: new Date(),
-    updatedAt: new Date(),
   });
 
   useEffect(() => {
