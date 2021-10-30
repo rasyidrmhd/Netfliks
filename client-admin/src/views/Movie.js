@@ -58,6 +58,42 @@ export default function Movie(props) {
                       })}
                     </tbody>
                   </table>
+                  {movies.map((movie, idx) => {
+                    return (
+                      <div className="modal fade border-0" id={`castsModal${movie.id}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" key={movie.id}>
+                        <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                          <div className="modal-content text-white" style={{ backgroundColor: "#212121", borderRadius: "20px" }}>
+                            <div className="modal-header">
+                              <h5 className="modal-title" id="exampleModalLabel">
+                                {movie.title}'s Casts
+                              </h5>
+                              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div className="modal-body d-flex justify-content-center">
+                              {movie.Casts.map((cast) => {
+                                return (
+                                  <div className="text-center mx-3" key={cast.id}>
+                                    <img className="rounded-circle border-0 mb-3" src={cast.profilePict} alt="can't load the image" style={{ width: "150px", height: "150px", objectFit: "cover" }} />
+                                    <br />
+                                    <span className="badge badge-info" style={{ fontSize: "14px" }}>
+                                      {cast.name}
+                                    </span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                            <div className="modal-footer">
+                              <button type="button" className="btn btn-secondary rounded-pill" data-dismiss="modal">
+                                Close
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

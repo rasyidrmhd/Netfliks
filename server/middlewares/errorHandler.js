@@ -26,6 +26,12 @@ const errorHandler = (err, req, res, next) => {
     case "Already Bookmark":
       res.status(400).json({ message: "This product is already in your bookmark" });
       break;
+    case "noCast":
+      res.status(400).json({ message: ["At least add 1 cast for this movie"] });
+      break;
+    case "noNameCast":
+      res.status(400).json({ message: ["Cast's name is required"] });
+      break;
     case "Invalid":
       res.status(401).json({ message: "Incorrect email or password" });
       break;

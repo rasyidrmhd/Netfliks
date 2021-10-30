@@ -27,7 +27,6 @@ export default function AddMovie(props) {
   });
 
   const [inputCasts, setInputCasts] = useState([{ name: "", profilePict: "" }]);
-  let [amountCast, setAmountCast] = useState(1);
 
   useEffect(() => {
     if (slug) {
@@ -41,6 +40,21 @@ export default function AddMovie(props) {
       setInputMovie(movieById);
     }
   }, [movieById]);
+
+  useEffect(() => {
+    if (slug) {
+      setInputCasts(movieById.Casts);
+    }
+  }, [movieById.Casts]);
+
+  useEffect(() => {
+    if (slug) {
+      setInputMovie({
+        ...inputMovie,
+        ["casts"]: inputCasts,
+      });
+    }
+  }, [inputCasts]);
 
   const changeInputMovieHandler = (e) => {
     const { value, name } = e.target;
@@ -84,8 +98,6 @@ export default function AddMovie(props) {
       notif = "added";
     }
 
-    console.log(inputMovie);
-
     swalLoading();
     dispatch(postPutMovie(method, slug, inputMovie))
       .then(async (response) => {
@@ -98,7 +110,7 @@ export default function AddMovie(props) {
       })
       .then((data) => {
         Swal.close();
-        swalSuccess("", `Movie ${data.title} successfully ${notif}`).then((result) => {
+        swalSuccess("", `Movie ${data.result.title} successfully ${notif}`).then((result) => {
           if (result.isConfirmed) {
             history.push("/movie");
           }
@@ -119,9 +131,10 @@ export default function AddMovie(props) {
 
   let showError;
   if (err.length !== 0) {
+    console.log(err);
     showError = (
       <div className="text-center mb-3">
-        {err.message.map((err, idx) => {
+        {err?.message.map((err, idx) => {
           return (
             <span key={idx} className="badge badge-danger mr-1">
               {err}
@@ -239,7 +252,7 @@ export default function AddMovie(props) {
                     </div>
                     <hr style={{ border: "1px solid white" }} />
                     <div className="form-group">
-                      {inputCasts.map((inputCast, idx) => (
+                      {inputCasts?.map((inputCast, idx) => (
                         <div key={idx}>
                           <div className="form-group">
                             <label htmlFor="cast">Cast {idx + 1}</label>
