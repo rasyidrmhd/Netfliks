@@ -28,7 +28,7 @@ export function fetchMovie() {
   };
 }
 
-export function setMovieById(payload) {
+export function setMovieBySlug(payload) {
   return {
     type: SET_MOVIE_BY_ID,
     payload,
@@ -47,7 +47,7 @@ export function fetchMovieBySlug(slug) {
         }
       })
       .then((data) => {
-        dispatch(setMovieById(data));
+        dispatch(setMovieBySlug(data));
       })
       .catch((err) => {
         console.log(err, "Errorrrrr");

@@ -13,7 +13,7 @@ function Navbar() {
       </button>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav mr-auto">
           <NavLink className="nav-item text-decoration-none" to="/" exact={true}>
             <span className="nav-link" href="#">
               <span className="mr-2 d-none d-lg-inline font-weight-bolder">Home</span>
@@ -25,16 +25,23 @@ function Navbar() {
             </span>
           </NavLink>
           <NavLink className="nav-item text-decoration-none" to="/tvSeries">
-            <a className="nav-link" href="#">
+            <span className="nav-link" href="#">
               <span className="mr-2 d-none d-lg-inline font-weight-bolder">TV Series</span>
-            </a>
+            </span>
           </NavLink>
           <NavLink className="nav-item text-decoration-none" to="/animes">
-            <a className="nav-link" href="#">
+            <span className="nav-link" href="#">
               <span className="mr-2 d-none d-lg-inline font-weight-bolder">Animes</span>
-            </a>
+            </span>
           </NavLink>
         </ul>
+
+        <form className="form-inline my-2 my-lg-0">
+          <input className="form-control mr-sm-2 border-0 rounded-pill text-white" type="text" placeholder="Search" style={{ backgroundColor: "#303030" }} />
+          <button className="btn btn-danger rounded-pill" type="submit">
+            <i className="fas fa-search"></i>
+          </button>
+        </form>
 
         {/* <ul className="navbar-nav ml-auto">
           <li className="nav-item dropdown no-arrow">

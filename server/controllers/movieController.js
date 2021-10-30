@@ -9,7 +9,7 @@ class MovieController {
           { model: Genre, attributes: ["id", "name"] },
           { model: Cast, attributes: ["id", "name", "profilePict"] },
         ],
-        order: [["createdAt", "desc"]],
+        order: [["id", "desc"]],
       });
       res.status(200).json(result);
     } catch (err) {
@@ -142,7 +142,7 @@ class MovieController {
         transaction: t,
       });
 
-      if (deleteCast !== 0) {
+      if (deleteCast !== 0 || Casts.length !== 0) {
         const createCast = await Cast.bulkCreate(Casts, {
           returning: true,
           transaction: t,
