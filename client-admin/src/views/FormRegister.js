@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
 import { postUser, setLoading } from "../store/actions/userAction";
 import Sidebar from "../components/Sidebar";
-import { swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
+import { swalSuccess, swalError, swalLoading, Swal } from "../apis/sweetalert";
 
 export default function Register() {
   const dispatch = useDispatch();

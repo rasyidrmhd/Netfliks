@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 import { fetchUser, deleteUser } from "../store/actions/userAction";
 import Sidebar from "../components/Sidebar";
 import TableRowAdmin from "../components/TableRowAdmin";
-import { swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
+import { swalSuccess, swalError, swalLoading, Swal } from "../apis/sweetalert";
 
 export default function Home(props) {
   const dispatch = useDispatch();

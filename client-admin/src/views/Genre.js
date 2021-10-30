@@ -4,6 +4,7 @@ import { fetchGenre, deleteGenre } from "../store/actions/genreAction";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import TableRowGenre from "../components/TableRowGenre";
+import { Swal, swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
 
 export default function Genre(props) {
   const dispatch = useDispatch();

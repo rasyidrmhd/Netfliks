@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { fetchMovieBySlug, postPutMovie } from "../store/actions/movieAction";
 import { fetchGenre } from "../store/actions/genreAction";
 import Sidebar from "../components/Sidebar";
-import { swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
-import Swal from "sweetalert2";
+import { swalSuccess, swalError, swalLoading, Swal } from "../apis/sweetalert";
 
 export default function AddMovie(props) {
   const dispatch = useDispatch();

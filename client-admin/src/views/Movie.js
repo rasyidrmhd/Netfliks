@@ -4,6 +4,7 @@ import { fetchMovie, deleteMovie } from "../store/actions/movieAction";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import TableRowMovie from "../components/TableRowMovie";
+import { Swal, swalError, swalLoading, swalSuccess } from "../apis/sweetalert";
 
 export default function Movie(props) {
   const dispatch = useDispatch();

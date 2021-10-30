@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setLoading, setError, login } from "../store/actions/loginAction";
-import { swalLoading } from "../apis/sweetalert";
-import Swal from "sweetalert2";
+import { swalLoading, Swal } from "../apis/sweetalert";
 
 export default function Login(props) {
   const history = useHistory();
