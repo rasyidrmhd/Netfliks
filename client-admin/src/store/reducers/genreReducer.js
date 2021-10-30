@@ -1,4 +1,4 @@
-import { SET_GENRES, SET_GENRE_BY_ID } from "../actionType";
+import { SET_GENRES, SET_GENRE_BY_ID, SET_ISlOADING, SET_ISERROR } from "../actionType";
 
 const initialState = {
   genres: [],
@@ -13,6 +13,10 @@ export default function genreReducer(state = initialState, action) {
       return { ...state, genres: action.payload };
     case SET_GENRE_BY_ID:
       return { ...state, genreById: action.payload };
+    case SET_ISlOADING:
+      return { ...state, isLoading: action.payload };
+    case SET_ISERROR:
+      return { ...state, isError: action.payload };
     default:
       return state;
   }

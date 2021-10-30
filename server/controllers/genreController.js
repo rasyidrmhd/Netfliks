@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 class GenreController {
   static async getAllGenre(req, res, next) {
     try {
-      const result = await Genre.findAll();
+      const result = await Genre.findAll({ order: [["id", "asc"]] });
 
       res.status(200).json(result);
     } catch (err) {
@@ -41,13 +41,13 @@ class GenreController {
         },
       });
 
-      if (found.name.toLowerCase() === name.toLowerCase()) {
+      if (found && found.name.toLowerCase() === name.toLowerCase()) {
         throw { name: "genreExist" };
       }
 
       const result = await Genre.create({
         name: name || null,
-        imgUrl,
+        imgUrl: imgUrl || null,
       });
 
       res.status(201).json(result);
@@ -63,20 +63,21 @@ class GenreController {
 
       const found = await Genre.findOne({
         where: {
-          name: {
-            [Op.iLike]: `%${name}%`,
-          },
+          name:
+            {
+              [Op.iLike]: `%${name}%`,
+            } || null,
         },
       });
 
-      if (found && found.name !== name) {
+      if (found && found.name.toLowerCase() === name.toLowerCase()) {
         throw { name: "genreExist" };
       }
 
       const result = await Genre.update(
         {
-          name,
-          imgUrl,
+          name: name || null,
+          imgUrl: imgUrl || null,
         },
         { where: { id }, returning: true }
       );

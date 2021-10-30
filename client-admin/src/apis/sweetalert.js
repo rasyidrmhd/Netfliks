@@ -7,6 +7,7 @@ function swalSuccess(title, text) {
     title,
     text,
     icon: "success",
+    allowOutsideClick: false,
   };
 
   return Swal.fire(data);
@@ -17,6 +18,7 @@ function swalError(title, text) {
     title,
     text,
     icon: "error",
+    allowOutsideClick: false,
   };
 
   return Swal.fire(data);

@@ -58,3 +58,24 @@ export function deleteGenre(id) {
       });
   };
 }
+
+export function postPutGenre(method, id = 0, data) {
+  return async (dispatch, getState) => {
+    let url;
+    if (method === "PUT") {
+      url = `${server}/genres/${id}`;
+    } else {
+      url = `${server}/genres`;
+    }
+
+    const result = await fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    return result;
+  };
+}

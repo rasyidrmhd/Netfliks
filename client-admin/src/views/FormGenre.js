@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGenreById } from "../store/actions/genreAction";
+import { fetchGenreById, postPutGenre } from "../store/actions/genreAction";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { server } from "../apis/server";
 import Sidebar from "../components/Sidebar";
+import { swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
+import Swal from "sweetalert2";
 
 export default function AddGenre() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { genreById } = useSelector((state) => state);
   const { genreId } = useParams();
+  const { genreById } = useSelector((state) => state.genreReducer);
+  const [err, setErr] = useState([]);
 
   const [inputGenre, setInputGenre] = useState({
     name: "",
@@ -40,23 +43,18 @@ export default function AddGenre() {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    let url;
     let method;
+    let notif;
     if (genreId) {
-      url = `${server}/genres/${genreId}`;
       method = "PUT";
+      notif = "updated";
     } else {
-      url = `${server}/genres`;
       method = "POST";
+      notif = "added";
     }
 
-    fetch(url, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(inputGenre),
-    })
+    swalLoading();
+    dispatch(postPutGenre(method, genreId, inputGenre))
       .then(async (response) => {
         const result = await response.json();
         if (response.ok) {
@@ -66,11 +64,16 @@ export default function AddGenre() {
         }
       })
       .then((data) => {
-        console.log("success post or put genre");
-        history.push("/genre");
+        Swal.close();
+        swalSuccess("", `Genre ${data.name} successfully ${notif}`).then((result) => {
+          if (result.isConfirmed) {
+            history.push("/genre");
+          }
+        });
       })
       .catch((err) => {
-        console.log(err, "errorrr");
+        Swal.close();
+        setErr(err);
       });
   };
 
@@ -79,6 +82,21 @@ export default function AddGenre() {
     formContent = { title: `Edit Genre ${genreById.name}`, button: "Edit" };
   } else {
     formContent = { title: "Add New Genre", button: "Add" };
+  }
+
+  let showError;
+  if (err.length !== 0) {
+    showError = (
+      <div className="text-center mb-2">
+        {err.message.map((err, idx) => {
+          return (
+            <span key={idx} className="badge badge-danger mr-1">
+              {err}
+            </span>
+          );
+        })}
+      </div>
+    );
   }
 
   return (
@@ -101,6 +119,7 @@ export default function AddGenre() {
                   </Link>
                 </div>
                 <div className="card-body" style={{ backgroundColor: "#212121" }}>
+                  {showError}
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <label htmlFor="name">Name</label>
