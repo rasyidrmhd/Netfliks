@@ -8,7 +8,7 @@ export default function TableRowMovie(props) {
     <tr className="text-white text-center" style={{ backgroundColor: "#303030" }}>
       <td>{idx + 1}</td>
       <td>
-        <img src={movie.imgUrl} alt="" style={{ width: "200px", borderRadius: "20px" }} />
+        <img src={movie.imgUrl} alt="Can't load the image" style={{ width: "200px", borderRadius: "20px" }} />
       </td>
       <td className="text-left">{movie.title}</td>
       <td>{movie.category}</td>

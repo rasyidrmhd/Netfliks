@@ -1,4 +1,4 @@
-const { Movie, Genre, Cast } = require("../models");
+const { Movie, Genre, Cast, sequelize } = require("../models");
 
 class MovieController {
   static async getAllMovie(req, res, next) {
@@ -27,8 +27,10 @@ class MovieController {
   }
 
   static async postMovie(req, res, next) {
+    const t = await sequelize.transaction();
+
     try {
-      const { title, synopsis, trailerUrl, imgUrl, rating, category, GenreId } = req.body;
+      const { title, synopsis, trailerUrl, imgUrl, rating, category, GenreId, casts } = req.body;
       const { id } = req.user;
 
       const result = await Movie.create({
@@ -42,15 +44,32 @@ class MovieController {
         AuthorId: Number(id),
       });
 
-      res.status(201).json(result);
+      const Casts = casts.map((cast) => {
+        return {
+          name: cast.name,
+          profilePict: cast.profilePict,
+          MovieId: result.id,
+        };
+      });
+
+      const createCast = await Cast.bulkCreate(Casts, {
+        returning: true,
+        transaction: t,
+      });
+
+      await t.commit();
+
+      res.status(201).json({ result, createCast });
     } catch (err) {
+      await t.rollback();
+      console.log(err);
       next(err);
     }
   }
 
   static async putMovieById(req, res, next) {
     try {
-      const { id } = req.params;
+      const { slug } = req.params;
       const { title, synopsis, trailerUrl, imgUrl, rating, category, GenreId } = req.body;
 
       const result = await Movie.update(
@@ -63,7 +82,7 @@ class MovieController {
           category,
           GenreId: Number(GenreId),
         },
-        { where: { id }, returning: true, individualHooks: true }
+        { where: { slug }, returning: true, individualHooks: true }
       );
 
       const isFound = result[0];

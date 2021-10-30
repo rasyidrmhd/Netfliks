@@ -10,7 +10,7 @@ function HomePage() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch(`${server}/genre`)
+    fetch(`${server}/genres`)
       .then((response) => {
         return response.json();
       })
@@ -19,7 +19,7 @@ function HomePage() {
       })
       .catch((err) => {});
 
-    fetch(`${server}/movie?rating=5`)
+    fetch(`${server}/movies?rating=5`)
       .then((response) => {
         return response.json();
       })
@@ -66,7 +66,7 @@ function HomePage() {
       </div>
       <h4 className="mt-3 mb-0 mx-2">Top Rated</h4>
       <div>
-        <div className="d-flex flex-row justify-content-start" style={{ width: "90vw" }}>
+        <div className="d-flex flex-row flex-wrap justify-content-start" style={{ width: "90vw" }}>
           {movies.map((movie) => {
             return <MovieCard movie={movie} key={movie.id}></MovieCard>;
           })}

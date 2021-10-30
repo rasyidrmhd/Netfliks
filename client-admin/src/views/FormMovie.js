@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { fetchMovieBySlug, postPutMovie } from "../store/actions/movieAction";
@@ -25,6 +26,9 @@ export default function AddMovie(props) {
     GenreId: 1,
   });
 
+  const [inputCasts, setInputCasts] = useState([{ name: "", profilePict: "" }]);
+  let [amountCast, setAmountCast] = useState(1);
+
   useEffect(() => {
     if (slug) {
       dispatch(fetchMovieBySlug(slug));
@@ -47,6 +51,26 @@ export default function AddMovie(props) {
     });
   };
 
+  const changeInputCastHandler = (idx, e) => {
+    const values = [...inputCasts];
+    values[idx][e.target.name] = e.target.value;
+    setInputCasts(values);
+    setInputMovie({
+      ...inputMovie,
+      ["casts"]: inputCasts,
+    });
+  };
+
+  const addCast = () => {
+    setInputCasts([...inputCasts, { name: "", profilePict: "" }]);
+  };
+
+  const removeCast = (idx) => {
+    const values = [...inputCasts];
+    values.splice(idx, 1);
+    setInputCasts(values);
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -59,6 +83,8 @@ export default function AddMovie(props) {
       method = "POST";
       notif = "added";
     }
+
+    console.log(inputMovie);
 
     swalLoading();
     dispatch(postPutMovie(method, slug, inputMovie))
@@ -211,8 +237,65 @@ export default function AddMovie(props) {
                         onChange={changeInputMovieHandler}
                       />
                     </div>
+                    <hr style={{ border: "1px solid white" }} />
+                    <div className="form-group">
+                      {inputCasts.map((inputCast, idx) => (
+                        <div key={idx}>
+                          <div className="form-group">
+                            <label htmlFor="cast">Cast {idx + 1}</label>
+                            <a
+                              href="#"
+                              className="text-danger text-decoration-none ml-2"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                removeCast(idx);
+                              }}
+                            >
+                              Remove
+                            </a>
+                            <input
+                              type="text"
+                              name="name"
+                              className="form-control border-0 rounded-pill"
+                              autoComplete="off"
+                              placeholder="Cast name"
+                              defaultValue={inputCast.name}
+                              onChange={(e) => {
+                                changeInputCastHandler(idx, e);
+                              }}
+                            />
+                          </div>
+                          <div className="form-group">
+                            <label htmlFor="profile">Profile {idx + 1}</label>
+                            <input
+                              type="text"
+                              name="profilePict"
+                              className="form-control border-0 rounded-pill"
+                              autoComplete="off"
+                              placeholder="Cast profile picture image url"
+                              defaultValue={inputCast.profilePict}
+                              onChange={(e) => {
+                                changeInputCastHandler(idx, e);
+                              }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                      <div className="form-group" id="cast-input"></div>
+                      <button
+                        type="button"
+                        className="btn btn-success btn-block rounded-pill"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          addCast();
+                        }}
+                      >
+                        Add More Cast
+                      </button>
+                    </div>
+                    <hr style={{ border: "1px solid white" }} />
                     {showError}
-                    <button type="submit" className="btn btn-danger btn-block mr-2 rounded-pill">
+                    <button type="submit" className="btn btn-danger btn-block rounded-pill">
                       {formContent.button}
                     </button>
                   </form>

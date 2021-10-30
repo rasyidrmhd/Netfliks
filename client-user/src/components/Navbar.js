@@ -36,19 +36,6 @@ function Navbar() {
           </NavLink>
         </ul>
 
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item text-decoration-none">
-            <a className="nav-link" href="#">
-              <span className="mr-2 d-none d-lg-inline font-weight-bolder">Sign In</span>
-            </a>
-          </li>
-          <li className="nav-item text-decoration-none">
-            <a className="nav-link" href="#">
-              <span className="mr-2 d-none d-lg-inline font-weight-bolder">Sign Up</span>
-            </a>
-          </li>
-        </ul>
-
         {/* <ul className="navbar-nav ml-auto">
           <li className="nav-item dropdown no-arrow">
             <a className="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
