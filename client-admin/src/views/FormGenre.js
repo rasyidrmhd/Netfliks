@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGenreById, postPutGenre } from "../store/actions/genreAction";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { server } from "../apis/server";
+import { fetchGenreById, postPutGenre } from "../store/actions/genreAction";
 import Sidebar from "../components/Sidebar";
 import { swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
 import Swal from "sweetalert2";
@@ -87,7 +86,7 @@ export default function AddGenre() {
   let showError;
   if (err.length !== 0) {
     showError = (
-      <div className="text-center mb-2">
+      <div className="text-center mb-3">
         {err.message.map((err, idx) => {
           return (
             <span key={idx} className="badge badge-danger mr-1">
@@ -119,7 +118,6 @@ export default function AddGenre() {
                   </Link>
                 </div>
                 <div className="card-body" style={{ backgroundColor: "#212121" }}>
-                  {showError}
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <label htmlFor="name">Name</label>
@@ -138,6 +136,7 @@ export default function AddGenre() {
                         onChange={changeInputGenreHandler}
                       />
                     </div>
+                    {showError}
                     <button type="submit" className="btn btn-danger btn-block mr-2 rounded-pill">
                       {formContent.button}
                     </button>

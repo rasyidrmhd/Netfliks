@@ -1,37 +1,42 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { server } from "../apis/server";
+import { fetchMovieBySlug, postPutMovie } from "../store/actions/movieAction";
+import { fetchGenre } from "../store/actions/genreAction";
 import Sidebar from "../components/Sidebar";
+import { swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
+import Swal from "sweetalert2";
 
 export default function AddMovie(props) {
+  const dispatch = useDispatch();
   const history = useHistory();
-  const { movieId } = useParams();
+  const { slug } = useParams();
+  const { movieById } = useSelector((state) => state.movieReducer);
+  const { genres } = useSelector((state) => state.genreReducer);
+  const [err, setErr] = useState([]);
 
   const [inputMovie, setInputMovie] = useState({
     title: "",
-    slug: "",
     synopsis: "",
     trailerUrl: "",
     imgUrl: "",
-    rating: 0,
+    rating: "",
+    category: "Movies",
     GenreId: 1,
-    AuthorId: 1,
   });
 
   useEffect(() => {
-    if (movieId) {
-      fetch(`${server}/movie/${movieId}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setInputMovie(data);
-        })
-        .catch((err) => {
-          console.log(err, "Errorrrrr");
-        });
+    if (slug) {
+      dispatch(fetchMovieBySlug(slug));
     }
+    dispatch(fetchGenre());
   }, []);
+
+  useEffect(() => {
+    if (slug) {
+      setInputMovie(movieById);
+    }
+  }, [movieById]);
 
   const changeInputMovieHandler = (e) => {
     const { value, name } = e.target;
@@ -45,34 +50,61 @@ export default function AddMovie(props) {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    let url;
     let method;
-    if (movieId) {
-      url = `${server}/movie/${movieId}`;
+    let notif;
+    if (slug) {
       method = "PUT";
+      notif = "updated";
     } else {
-      url = `${server}/movie`;
       method = "POST";
+      notif = "added";
     }
 
-    fetch(url, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(inputMovie),
-    })
-      .then((response) => {
-        return response.json();
+    swalLoading();
+    dispatch(postPutMovie(method, slug, inputMovie))
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
       })
       .then((data) => {
-        console.log("successss post or put movie");
-        history.push("/movie");
+        Swal.close();
+        swalSuccess("", `Movie ${data.title} successfully ${notif}`).then((result) => {
+          if (result.isConfirmed) {
+            history.push("/movie");
+          }
+        });
       })
       .catch((err) => {
-        console.log(err, "errorrrrrrr");
+        Swal.close();
+        setErr(err);
       });
   };
+
+  let formContent;
+  if (slug) {
+    formContent = { title: `Edit Movie ${movieById.title}`, button: "Edit" };
+  } else {
+    formContent = { title: "Add New Movie", button: "Add" };
+  }
+
+  let showError;
+  if (err.length !== 0) {
+    showError = (
+      <div className="text-center mb-3">
+        {err.message.map((err, idx) => {
+          return (
+            <span key={idx} className="badge badge-danger mr-1">
+              {err}
+            </span>
+          );
+        })}
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -85,7 +117,7 @@ export default function AddMovie(props) {
             <div className="mt-3">
               <div className="card o-hidden shadow mb-4 border-0" style={{ backgroundColor: "#212121", borderRadius: "20px" }}>
                 <div className="card-header py-3 d-flex flex-row justify-content-between align-items-center" style={{ backgroundColor: "#212121" }}>
-                  <h5 className="m-0 font-weight-bold text-danger">Add New Movie</h5>
+                  <h5 className="m-0 font-weight-bold text-danger">{formContent.title}</h5>
                   <Link className="btn btn-sm btn-danger btn-icon-split" to="/movie">
                     <span className="icon">
                       <i className="fa fa-angle-left"></i>
@@ -96,8 +128,34 @@ export default function AddMovie(props) {
                 <div className="card-body" style={{ backgroundColor: "#212121" }}>
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
+                      <label htmlFor="category">Category</label>
+                      <select className="form-control border-0 rounded-pill" name="category" onChange={changeInputMovieHandler}>
+                        <option value="Movies" selected={inputMovie.category === "Movies" ? "selected" : false}>
+                          Movies
+                        </option>
+                        <option value="TV Series" selected={inputMovie.category === "TV Series" ? "selected" : false}>
+                          TV Series
+                        </option>
+                        <option value="Animes" selected={inputMovie.category === "Animes" ? "selected" : false}>
+                          Animes
+                        </option>
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="genre">Genre</label>
+                      <select className="form-control border-0 rounded-pill" name="GenreId" onChange={changeInputMovieHandler}>
+                        {genres.map((genre, idx) => {
+                          return (
+                            <option value={genre.id} key={genre.id} selected={genre.id === inputMovie.GenreId ? "selected" : false}>
+                              {genre.name}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                    <div className="form-group">
                       <label htmlFor="title">Title</label>
-                      <input id="title" type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter new movie title" name="title" value={inputMovie.title} onChange={changeInputMovieHandler} />
+                      <input id="title" type="text" className="form-control border-0 rounded-pill" autoComplete="off" placeholder="Enter new movie title" name="title" defaultValue={inputMovie.title} onChange={changeInputMovieHandler} />
                     </div>
                     <div className="form-group">
                       <label htmlFor="synopsis">Synopsis</label>
@@ -109,7 +167,7 @@ export default function AddMovie(props) {
                         name="synopsis"
                         id="synopsis"
                         onChange={changeInputMovieHandler}
-                        value={inputMovie.synopsis}
+                        defaultValue={inputMovie.synopsis}
                         style={{ borderRadius: "20px" }}
                       ></textarea>
                     </div>
@@ -122,16 +180,40 @@ export default function AddMovie(props) {
                         autoComplete="off"
                         placeholder="Enter new movie trailer url"
                         name="trailerUrl"
-                        value={inputMovie.trailerUrl}
+                        defaultValue={inputMovie.trailerUrl}
                         onChange={changeInputMovieHandler}
                       />
                     </div>
                     <div className="form-group">
                       <label htmlFor="imgUrl">Image Url</label>
-                      <input id="imgUrl" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="imgUrl" placeholder="Enter new movie image url" value={inputMovie.imgUrl} onChange={changeInputMovieHandler} />
+                      <input
+                        id="imgUrl"
+                        type="text"
+                        className="form-control border-0 rounded-pill"
+                        autoComplete="off"
+                        name="imgUrl"
+                        placeholder="Enter new movie image url"
+                        defaultValue={inputMovie.imgUrl}
+                        onChange={changeInputMovieHandler}
+                      />
                     </div>
+                    <div className="form-group">
+                      <label htmlFor="rating">Rating</label>
+                      <input
+                        id="rating"
+                        type="number"
+                        className=""
+                        className="form-control border-0 rounded-pill"
+                        autoComplete="off"
+                        name="rating"
+                        placeholder="Enter new movie rating"
+                        defaultValue={inputMovie.rating}
+                        onChange={changeInputMovieHandler}
+                      />
+                    </div>
+                    {showError}
                     <button type="submit" className="btn btn-danger btn-block mr-2 rounded-pill">
-                      Add
+                      {formContent.button}
                     </button>
                   </form>
                 </div>

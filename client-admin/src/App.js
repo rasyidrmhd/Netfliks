@@ -56,7 +56,7 @@ function App() {
         <PrivatePage path="/movie">
           <Movie />
         </PrivatePage>
-        <PrivatePage path="/editMovie/:movieId">
+        <PrivatePage path="/editMovie/:slug">
           <FormMovie />
         </PrivatePage>
         <PrivatePage path="/addMovie">

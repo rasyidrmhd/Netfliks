@@ -12,7 +12,7 @@ export default function movieReducer(state = initialState, action) {
     case SET_MOVIES:
       return { ...state, movies: action.payload };
     case SET_MOVIE_BY_ID:
-      return { ...state, moviesById: action.payload };
+      return { ...state, movieById: action.payload };
     default:
       return state;
   }

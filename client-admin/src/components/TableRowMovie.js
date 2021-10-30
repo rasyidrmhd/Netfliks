@@ -11,8 +11,8 @@ export default function TableRowMovie(props) {
         <img src={movie.imgUrl} alt="" style={{ width: "200px", borderRadius: "20px" }} />
       </td>
       <td className="text-left">{movie.title}</td>
-      <td>2</td>
-      <td>{movie.GenreId}</td>
+      <td>{movie.category}</td>
+      <td>{movie.Genre.name}</td>
       <td className="text-left">{movie.synopsis}</td>
       <td>{movie.rating}</td>
       <td>
@@ -20,13 +20,14 @@ export default function TableRowMovie(props) {
           <i className="fas fa-play"></i>
         </a>
       </td>
+      <td></td>
       <td>
         <a
           href="#"
           className="btn btn-success btn-circle m-1"
           onClick={(e) => {
             e.preventDefault();
-            history.push(`/editMovie/${movie.id}`);
+            history.push(`/editMovie/${movie.slug}`);
           }}
         >
           <i className="fa fa-pencil-alt"></i>

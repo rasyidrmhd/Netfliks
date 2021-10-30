@@ -11,8 +11,13 @@ export function setGenre(payload) {
 export function fetchGenre() {
   return (dispatch, getState) => {
     fetch(`${server}/genres`)
-      .then((response) => {
-        return response.json();
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
       })
       .then((data) => {
         dispatch(setGenre(data));
@@ -33,7 +38,14 @@ export function setGenreById(payload) {
 export function fetchGenreById(id) {
   return (dispatch, getState) => {
     fetch(`${server}/genres/${id}`)
-      .then((response) => response.json())
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
       .then((data) => {
         dispatch(setGenreById(data));
       })

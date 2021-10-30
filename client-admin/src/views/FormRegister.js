@@ -62,7 +62,7 @@ export default function Register() {
   let showError = "";
   if (err.length !== 0) {
     showError = (
-      <div className="text-center mb-2">
+      <div className="text-center mb-3">
         {err.message.map((err, idx) => {
           return (
             <span key={idx} className="badge badge-danger mr-1">
@@ -94,7 +94,6 @@ export default function Register() {
                   </Link>
                 </div>
                 <div className="card-body" style={{ backgroundColor: "#212121" }}>
-                  {showError}
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <label htmlFor="username">Username</label>
@@ -152,6 +151,7 @@ export default function Register() {
                         onChange={changeInputRegisterHandler}
                       />
                     </div>
+                    {showError}
                     <button type="submit" className="btn btn-danger btn-block mr-2 rounded-pill">
                       Register
                     </button>

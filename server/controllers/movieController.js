@@ -1,9 +1,9 @@
-const { Movie } = require("../models");
+const { Movie, Genre, Cast } = require("../models");
 
 class MovieController {
   static async getAllMovie(req, res, next) {
     try {
-      const result = await Movie.findAll();
+      const result = await Movie.findAll({ include: [{ model: Genre, attributes: ["id", "name"] }] });
       res.status(200).json(result);
     } catch (err) {
       next(err);

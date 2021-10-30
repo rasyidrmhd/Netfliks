@@ -48,6 +48,7 @@ export default function Movie(props) {
                         <th>Synopsis</th>
                         <th>Rating</th>
                         <th>Trailer</th>
+                        <th>Cast</th>
                         <th>Action</th>
                       </tr>
                     </thead>

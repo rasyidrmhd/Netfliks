@@ -10,8 +10,15 @@ export function setMovie(payload) {
 
 export function fetchMovie() {
   return (dispatch, getState) => {
-    fetch(`${server}/movie`)
-      .then((response) => response.json())
+    fetch(`${server}/movies`)
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
       .then((data) => {
         dispatch(setMovie(data));
       })
@@ -21,9 +28,36 @@ export function fetchMovie() {
   };
 }
 
+export function setMovieById(payload) {
+  return {
+    type: SET_MOVIE_BY_ID,
+    payload,
+  };
+}
+
+export function fetchMovieBySlug(slug) {
+  return (dispatch, getState) => {
+    fetch(`${server}/movies/${slug}`)
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
+      .then((data) => {
+        dispatch(setMovieById(data));
+      })
+      .catch((err) => {
+        console.log(err, "Errorrrrr");
+      });
+  };
+}
+
 export function deleteMovie(id) {
   return (dispatch, getState) => {
-    fetch(`${server}/movie/${id}`, {
+    fetch(`${server}/movies/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -34,5 +68,28 @@ export function deleteMovie(id) {
       .catch((err) => {
         console.log(err, "error from action deleteMovie");
       });
+  };
+}
+
+export function postPutMovie(method, id = 0, data) {
+  return async (dispatch, getState) => {
+    const access_token = localStorage.getItem("access_token");
+    let url;
+    if (method === "PUT") {
+      url = `${server}/movies/${id}`;
+    } else {
+      url = `${server}/movies`;
+    }
+
+    const result = await fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        access_token,
+      },
+      body: JSON.stringify(data),
+    });
+
+    return result;
   };
 }
