@@ -1,5 +1,5 @@
 import { server } from "../../apis/server";
-import { SET_ISlOADING, SET_ISERROR } from "../actionType";
+import { SET_ISlOADING, SET_ISERROR, SET_USERDATA } from "../actionType";
 
 export function setLoading(payload) {
   return {
@@ -15,6 +15,13 @@ export function setError(payload) {
   };
 }
 
+export function setUserdata(payload) {
+  return {
+    type: SET_USERDATA,
+    payload,
+  };
+}
+
 export function login(data) {
   return async (dispatch, getState) => {
     const result = await fetch(`${server}/users/login`, {
@@ -26,5 +33,30 @@ export function login(data) {
     });
 
     return result;
+  };
+}
+
+export function fetchUserdata() {
+  return (dispatch, getState) => {
+    const access_token = localStorage.getItem("accss_token");
+    fetch(`${server}/users/userdata`, {
+      headers: {
+        access_token,
+      },
+    })
+      .then(async (response) => {
+        const result = response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
+      .then((data) => {
+        dispatch(setUserdata(data));
+      })
+      .catch((err) => {
+        dispatch(setError(err));
+      });
   };
 }

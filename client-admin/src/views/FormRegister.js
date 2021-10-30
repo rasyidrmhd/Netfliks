@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { server } from "../apis/server";
+import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import { postUser, setLoading } from "../store/actions/userAction";
 import Sidebar from "../components/Sidebar";
+import { swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
 
-export default function Register(props) {
+export default function Register() {
+  const dispatch = useDispatch();
   const history = useHistory();
+  const { isLoading } = useSelector((state) => state.userReducer);
+  const [err, setErr] = useState([]);
   const [inputRegister, setInputRegister] = useState({
     username: "",
     email: "",
     password: "",
-    role: "admin",
     phoneNumber: "",
     address: "",
   });
@@ -26,24 +31,48 @@ export default function Register(props) {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    fetch(`${server}/user`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(inputRegister),
-    })
-      .then((response) => {
-        return response.json();
+    dispatch(setLoading(true));
+    dispatch(postUser(inputRegister))
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
       })
       .then((data) => {
-        console.log(data, "successss register");
-        history.push("home");
+        swalSuccess("", `${data.username} successfully registered`);
+        history.push("/home");
       })
       .catch((err) => {
-        console.log(err, "errorrrrrrr");
+        setErr(err);
+      })
+      .finally(() => {
+        dispatch(setLoading(false));
       });
   };
+
+  if (isLoading) {
+    swalLoading();
+  } else {
+    Swal.close();
+  }
+
+  let showError = "";
+  if (err.length !== 0) {
+    showError = (
+      <div className="text-center mb-2">
+        {err.message.map((err, idx) => {
+          return (
+            <span key={idx} className="badge badge-danger mr-1">
+              {err}
+            </span>
+          );
+        })}
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -65,6 +94,7 @@ export default function Register(props) {
                   </Link>
                 </div>
                 <div className="card-body" style={{ backgroundColor: "#212121" }}>
+                  {showError}
                   <form onSubmit={submitHandler}>
                     <div className="form-group">
                       <label htmlFor="username">Username</label>
@@ -81,7 +111,7 @@ export default function Register(props) {
                     </div>
                     <div className="form-group">
                       <label htmlFor="email">Email</label>
-                      <input id="email" type="email" className="form-control border-0 rounded-pill" autoComplete="off" name="email" placeholder="Enter new admin email" value={inputRegister.email} onChange={changeInputRegisterHandler} />
+                      <input id="email" type="text" className="form-control border-0 rounded-pill" autoComplete="off" name="email" placeholder="Enter new admin email" value={inputRegister.email} onChange={changeInputRegisterHandler} />
                     </div>
                     <div className="form-group">
                       <label htmlFor="password">Password</label>

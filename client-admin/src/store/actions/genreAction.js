@@ -10,7 +10,7 @@ export function setGenre(payload) {
 
 export function fetchGenre() {
   return (dispatch, getState) => {
-    fetch(`${server}/genre`)
+    fetch(`${server}/genres`)
       .then((response) => {
         return response.json();
       })
@@ -32,7 +32,7 @@ export function setGenreById(payload) {
 
 export function fetchGenreById(id) {
   return (dispatch, getState) => {
-    fetch(`${server}/genre/${id}`)
+    fetch(`${server}/genres/${id}`)
       .then((response) => response.json())
       .then((data) => {
         dispatch(setGenreById(data));
@@ -45,7 +45,7 @@ export function fetchGenreById(id) {
 
 export function deleteGenre(id) {
   return (dispatch, getState) => {
-    fetch(`${server}/genre/${id}`, {
+    fetch(`${server}/genres/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())

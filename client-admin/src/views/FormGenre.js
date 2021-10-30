@@ -43,10 +43,10 @@ export default function AddGenre() {
     let url;
     let method;
     if (genreId) {
-      url = `${server}/genre/${genreId}`;
+      url = `${server}/genres/${genreId}`;
       method = "PUT";
     } else {
-      url = `${server}/genre`;
+      url = `${server}/genres`;
       method = "POST";
     }
 
@@ -57,8 +57,13 @@ export default function AddGenre() {
       },
       body: JSON.stringify(inputGenre),
     })
-      .then((response) => {
-        return response.json();
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
       })
       .then((data) => {
         console.log("success post or put genre");

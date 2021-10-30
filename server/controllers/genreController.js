@@ -34,18 +34,19 @@ class GenreController {
 
       const found = await Genre.findOne({
         where: {
-          name: {
-            [Op.iLike]: `%${name}%`,
-          },
+          name:
+            {
+              [Op.iLike]: `%${name}%`,
+            } || null,
         },
       });
 
-      if (found) {
+      if (found.name.toLowerCase() === name.toLowerCase()) {
         throw { name: "genreExist" };
       }
 
       const result = await Genre.create({
-        name,
+        name: name || null,
         imgUrl,
       });
 

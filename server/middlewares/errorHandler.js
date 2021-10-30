@@ -1,5 +1,5 @@
 const errorHandler = (err, req, res, next) => {
-  console.log(err);
+  // console.log(err);
   switch (err.name) {
     case "SequelizeUniqueConstraintError":
       if (err.errors[0].path === "username") {
@@ -37,6 +37,9 @@ const errorHandler = (err, req, res, next) => {
       break;
     case "Unauthorized":
       res.status(403).json({ message: "You have no permission access" });
+      break;
+    case "userNotFound":
+      res.status(404).json({ message: "User not found" });
       break;
     case "movieNotFound":
       res.status(404).json({ message: "Movie not found" });

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUser, deleteUser } from "../store/actions/userAction";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { fetchUser, deleteUser } from "../store/actions/userAction";
 import Sidebar from "../components/Sidebar";
 import TableRowAdmin from "../components/TableRowAdmin";
-import { swalSuccess, swalLoading } from "../apis/sweetalert";
+import { swalSuccess, swalError, swalLoading } from "../apis/sweetalert";
 
 export default function Home(props) {
   const dispatch = useDispatch();
-  const { users } = useSelector((state) => state.userReducer);
+  const { users, isLoading, isError } = useSelector((state) => state.userReducer);
 
   const deleteUserById = (id) => {
     dispatch(deleteUser(id));
@@ -17,6 +18,16 @@ export default function Home(props) {
   useEffect(() => {
     dispatch(fetchUser());
   }, []);
+
+  if (isLoading) {
+    swalLoading();
+  } else {
+    Swal.close();
+  }
+
+  if (isError.length !== 0) {
+    swalError("", isError.message);
+  }
 
   return (
     <div>

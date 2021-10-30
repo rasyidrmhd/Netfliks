@@ -24,36 +24,66 @@ export function setError(payload) {
 
 export function fetchUser() {
   return (dispatch, getState) => {
+    dispatch(setLoading(true));
     const access_token = localStorage.getItem("access_token");
     fetch(`${server}/users`, {
       headers: {
         access_token,
       },
     })
-      .then((response) => response.json())
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
       .then((data) => {
         dispatch(setUser(data));
       })
       .catch((err) => {
-        console.log(err, "from actions fetchUser");
+        dispatch(setError(err));
+      })
+      .finally(() => {
+        dispatch(setLoading(false));
       });
   };
 }
 
 export function deleteUser(id) {
   return (dispatch, getState) => {
-    fetch(`${server}/user/${id}`, {
+    fetch(`${server}/users/${id}`, {
       method: "DELETE",
     })
-      .then((response) => {
-        return response.json();
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
       })
       .then((data) => {
-        dispatch(fetchUser());
-        console.log("success delete user");
+        const newUser = getState().userReducer.users.filter((user) => user.id != id);
+        dispatch(setUser(newUser));
       })
       .catch((err) => {
-        console.log(err, "from action deleteUser");
+        dispatch(setError(err));
       });
+  };
+}
+
+export function postUser(data) {
+  return async (dispatch, getState) => {
+    const result = await fetch(`${server}/users/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    return result;
   };
 }

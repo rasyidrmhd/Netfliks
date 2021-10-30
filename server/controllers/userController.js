@@ -9,7 +9,7 @@ class UserController {
       const { username, email, password, phoneNumber, address } = req.body;
 
       const result = await User.create({ username, email, password, phoneNumber, address });
-      res.status(201).json({ id: result.id, email: result.email });
+      res.status(201).json({ id: result.id, email: result.email, username: result.username });
     } catch (err) {
       next(err);
     }
@@ -57,6 +57,22 @@ class UserController {
     try {
       const result = await User.findAll();
       res.status(200).json(result);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async deleteUserById(req, res, next) {
+    try {
+      const { id } = req.params;
+
+      const found = await User.findOne({ where: { id } });
+      if (found) {
+        const result = await User.destroy({ where: { id } });
+        res.status(200).json({ message: `${found.username} success to deleted` });
+      } else {
+        throw { name: "userNotFound" };
+      }
     } catch (err) {
       next(err);
     }

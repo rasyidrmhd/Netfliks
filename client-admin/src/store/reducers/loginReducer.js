@@ -1,8 +1,9 @@
-import { SET_ISlOADING, SET_ISERROR } from "../actionType";
+import { SET_ISlOADING, SET_ISERROR, SET_USERDATA } from "../actionType";
 
 const initialState = {
   isLoading: false,
   isError: [],
+  userdata: {},
 };
 
 export default function loginReducer(state = initialState, action) {
@@ -11,6 +12,8 @@ export default function loginReducer(state = initialState, action) {
       return { ...state, isLoading: action.payload };
     case SET_ISERROR:
       return { ...state, isError: action.payload };
+    case SET_USERDATA:
+      return { ...state, userdata: action.payload };
     default:
       return state;
   }
