@@ -106,6 +106,8 @@ function HomePage() {
           return <GenreCard genre={genre} key={genre.id}></GenreCard>;
         })}
       </div>
+      <h4 className="mt-3 mb-0 mx-2">Top Rated</h4>
+      <div></div>
       <h4 className="mt-3 mb-0 mx-2">All Movies</h4>
       <div>
         <Carousel responsive={movieCardStyle} infinite={true} centerMode={true}>

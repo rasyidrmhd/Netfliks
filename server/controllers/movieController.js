@@ -4,12 +4,28 @@ const { Op } = require("sequelize");
 class MovieController {
   static async getAllMovie(req, res, next) {
     try {
+      const { GenreId, category, rating } = req.query;
+      let where = {};
+
+      if (GenreId) {
+        where["GenreId"] = Number(GenreId);
+      }
+
+      if (category) {
+        where["category"] = category;
+      }
+
+      if (rating) {
+        where["rating"] = rating;
+      }
+
       const result = await Movie.findAll({
         include: [
           { model: Genre, attributes: ["id", "name"] },
           { model: Cast, attributes: ["id", "name", "profilePict"] },
         ],
         order: [["id", "desc"]],
+        where,
       });
       res.status(200).json(result);
     } catch (err) {
