@@ -6,6 +6,7 @@ import "./assets/vendor/fontawesome-free/css/all.css";
 import HomePage from "./views/HomePage";
 import Movies from "./views/Movies";
 import MovieDetail from "./views/MovieDetail";
+import PagetNotFound from "./views/PageNotFound";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path="/movie/:slug">
           <MovieDetail />
+        </Route>
+        <Route path="*">
+          <PagetNotFound />
         </Route>
       </Switch>
     </div>

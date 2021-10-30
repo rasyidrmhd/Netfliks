@@ -66,7 +66,7 @@ export default function MovieDetail(props) {
       .catch((err) => {
         swalError("", `${err.message}`).then((result) => {
           if (result.isConfirmed) {
-            history.push("/");
+            history.goBack();
           }
         });
       });
