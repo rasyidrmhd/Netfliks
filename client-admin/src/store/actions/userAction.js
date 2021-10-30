@@ -1,5 +1,5 @@
 import { server } from "../../apis/server";
-import { SET_USERS } from "../actionType";
+import { SET_USERS, SET_ISlOADING, SET_ISERROR } from "../actionType";
 
 export function setUser(payload) {
   return {
@@ -8,9 +8,28 @@ export function setUser(payload) {
   };
 }
 
+export function setLoading(payload) {
+  return {
+    type: SET_ISlOADING,
+    payload,
+  };
+}
+
+export function setError(payload) {
+  return {
+    type: SET_ISERROR,
+    payload,
+  };
+}
+
 export function fetchUser() {
   return (dispatch, getState) => {
-    fetch(`${server}/user`)
+    const access_token = localStorage.getItem("access_token");
+    fetch(`${server}/users`, {
+      headers: {
+        access_token,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         dispatch(setUser(data));

@@ -4,6 +4,7 @@ import { fetchUser, deleteUser } from "../store/actions/userAction";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import TableRowAdmin from "../components/TableRowAdmin";
+import { swalSuccess, swalLoading } from "../apis/sweetalert";
 
 export default function Home(props) {
   const dispatch = useDispatch();
