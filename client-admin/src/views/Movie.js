@@ -72,10 +72,10 @@ export default function Movie(props) {
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
-                            <div className="modal-body d-flex justify-content-center">
+                            <div className="modal-body d-flex flex-wrap justify-content-center">
                               {movie.Casts.map((cast) => {
                                 return (
-                                  <div className="text-center mx-3" key={cast.id}>
+                                  <div className="text-center mx-3 mb-3" key={cast.id}>
                                     <img className="rounded-circle border-0 mb-3" src={cast.profilePict} alt="can't load the image" style={{ width: "150px", height: "150px", objectFit: "cover" }} />
                                     <br />
                                     <span className="badge badge-info" style={{ fontSize: "14px" }}>

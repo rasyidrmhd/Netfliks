@@ -1,6 +1,6 @@
 import { useHistory } from "react-router";
 
-export default function PageNotFound() {
+export default function PagetNotFound() {
   const history = useHistory();
 
   const goBack = () => {
@@ -8,7 +8,7 @@ export default function PageNotFound() {
   };
 
   return (
-    <div className="d-flex  justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+    <div className="d-flex  justify-content-center align-items-center text-white" style={{ minHeight: "100vh", backgroundColor: "#212121" }}>
       <div className="text-center">
         <i class="fas fa-sad-tear fa-7x"></i>
         <h2>

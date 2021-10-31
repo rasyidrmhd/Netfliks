@@ -7,7 +7,7 @@
     "trailerUrl": "https://www.youtube.com/embed/TcMBFSGVi1c",
     "imgUrl": "https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg?region=0%2C0%2C540%2C810",
     "rating": 5,
-    "category": "Movies",
+    "category": "Box Office",
     "GenreId": 4,
     "AuthorId": 1
   },
@@ -19,7 +19,7 @@
     "trailerUrl": "https://www.youtube.com/embed/X2m-08cOAbc",
     "imgUrl": "https://m.media-amazon.com/images/M/MV5BOTY2NzFjODctOWUzMC00MGZhLTlhNjMtM2Y2ODBiNGY1ZWRiXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
     "rating": 4,
-    "category": "Movies",
+    "category": "Box Office",
     "GenreId": 2,
     "AuthorId": 1
   },
@@ -31,7 +31,7 @@
     "trailerUrl": "https://www.youtube.com/embed/szby7ZHLnkA",
     "imgUrl": "https://i2.wp.com/mariviu.com/wp-content/uploads/2020/02/s8-1.jpg?fit=1024%2C576&ssl=1",
     "rating": 5,
-    "category": "Movies",
+    "category": "Box Office",
     "GenreId": 3,
     "AuthorId": 1
   },
@@ -54,8 +54,8 @@
     "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
     "trailerUrl": "https://www.youtube.com/embed/tbayiPxkUMM",
     "imgUrl": "https://upload.wikimedia.org/wikipedia/id/e/e8/Captain_America_The_Winter_Soldier.jpg",
-    "rating": 0,
-    "category": "Movies",
+    "rating": 4,
+    "category": "Box Office",
     "GenreId": 1,
     "AuthorId": 1
   },
@@ -67,7 +67,7 @@
     "trailerUrl": "https://www.youtube.com/embed/ONHBaC-pfsk",
     "imgUrl": "https://upload.wikimedia.org/wikipedia/id/4/46/Deadpool_poster.jpg",
     "rating": 3,
-    "category": "Movies",
+    "category": "Box Office",
     "GenreId": 2,
     "AuthorId": 1
   },

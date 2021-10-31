@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./assets/css/fontfamily.css";
 import "./assets/css/sb-admin-2.min.css";
 import "./assets/vendor/fontawesome-free/css/all.css";
@@ -12,6 +12,7 @@ import Movie from "./views/Movie";
 import FormRegister from "./views/FormRegister";
 import FormGenre from "./views/FormGenre";
 import FormMovie from "./views/FormMovie";
+import PageNotFound from "./views/PageNotFound";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -62,6 +63,9 @@ function App() {
         <PrivatePage path="/addMovie">
           <FormMovie />
         </PrivatePage>
+        <Route path="*">
+          <PageNotFound />
+        </Route>
       </Switch>
     </div>
   );
