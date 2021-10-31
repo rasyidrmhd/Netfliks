@@ -67,6 +67,7 @@ export default function AddMovie(props) {
     const values = [...inputCasts];
     values[idx][e.target.name] = e.target.value;
     setInputCasts(values);
+
     setInputMovie({
       ...inputMovie,
       ["casts"]: inputCasts,
@@ -167,7 +168,7 @@ export default function AddMovie(props) {
                     <div className="form-group">
                       <label htmlFor="category">Category</label>
                       <select className="form-control border-0 rounded-pill" name="category" onChange={changeInputMovieHandler}>
-                        <option value="Movies" selected={inputMovie.category === "Box Office" ? "selected" : false}>
+                        <option value="Box Office" selected={inputMovie.category === "Box Office" ? "selected" : false}>
                           Box Office
                         </option>
                         <option value="TV Series" selected={inputMovie.category === "TV Series" ? "selected" : false}>

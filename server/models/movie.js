@@ -102,6 +102,11 @@ module.exports = (sequelize, DataTypes) => {
         beforeCreate: (movie, options) => {
           let slug = movie.title.toLowerCase().split(" ").join("-");
           movie.slug = slug;
+
+          let url = movie.trailerUrl;
+          if (url.includes("watch?v=")) {
+            movie.trailerUrl = url.replace("watch?v=", "embed/");
+          }
         },
         afterCreate: (movie, options) => {
           let slug = movie.title.toLowerCase().split(" ").join("-");
@@ -116,9 +121,15 @@ module.exports = (sequelize, DataTypes) => {
         afterUpdate: (movie, options) => {
           let slug = movie.title.toLowerCase().split(" ").join("-");
           slug += `-${movie.id}`;
+
+          let url = movie.trailerUrl;
+          if (url.includes("watch?v=")) {
+            url = url.replace("watch?v=", "embed/");
+          }
           Movie.update(
             {
               slug: slug,
+              trailerUrl: url,
             },
             { where: { id: movie.id } }
           );
