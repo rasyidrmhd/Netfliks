@@ -10,10 +10,12 @@ import GenreCard from "../components/GenreCard";
 import MovieCard from "../components/MovieCard";
 import { Swal, swalLoading, swalSuccess, swalError } from "../apis/sweetalert";
 
-function HomePage() {
+export default function HomePage() {
   const dispatch = useDispatch();
   const { movies } = useSelector((state) => state.movieReducer);
   const { genres } = useSelector((state) => state.genreReducer);
+  const [topRated, setTopRated] = useState([]);
+
   const bannerStyle = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -82,8 +84,27 @@ function HomePage() {
         Swal.close();
       })
       .catch((err) => {
-        swalError("", `${err}`);
+        Swal.close();
+        swalError("", `${err.message}`);
       });
+  }, []);
+
+  useEffect(() => {
+    swalLoading();
+    dispatch(fetchMovies({ rating: 5 }))
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
+      .then((data) => {
+        setTopRated(data);
+        Swal.close();
+      })
+      .catch((err) => {});
   }, []);
 
   return (
@@ -100,24 +121,32 @@ function HomePage() {
           <img src="https://imgx.sonora.id/crop/133x0:1028x587/x/photo/2020/06/12/796445458.jpeg" className="d-block w-100" alt="..." style={{ objectFit: "cover" }} />
         </div>
       </Carousel>
-      <h4 className="mt-3 mb-0 mx-2">Genres</h4>
-      <div className="d-flex flex-row justify-content-center">
+      <h4 className="mt-3 mb-0 mx-3 font-weight-bolder">Genres</h4>
+      <div className="d-flex flex-row justify-content-center mx-1">
         {genres.map((genre) => {
           return <GenreCard genre={genre} key={genre.id}></GenreCard>;
         })}
       </div>
-      <h4 className="mt-3 mb-0 mx-2">Top Rated</h4>
-      <div></div>
-      <h4 className="mt-3 mb-0 mx-2">All Movies</h4>
+      <h4 className="mt-3 mb-0 mx-3 font-weight-bolder">Top Rated Movies</h4>
       <div>
         <Carousel responsive={movieCardStyle} infinite={true} centerMode={true}>
-          {movies.map((movie) => {
+          {topRated.map((movie) => {
             return <MovieCard movie={movie} key={movie.id}></MovieCard>;
           })}
         </Carousel>
       </div>
+      <h4 className="mt-3 mb-0 mx-3 font-weight-bolder">All Movies</h4>
+      <div>
+        <div className="d-flex flex-wrap row justify-content-start mx-1">
+          {movies.map((movie) => {
+            return (
+              <div className="col-3">
+                <MovieCard movie={movie} key={movie.id}></MovieCard>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
-
-export default HomePage;

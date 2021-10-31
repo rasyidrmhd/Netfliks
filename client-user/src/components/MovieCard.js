@@ -31,7 +31,7 @@ function MovieCard(props) {
             halfIcon={<i className="fa fa-star-half-alt" />}
             filledIcon={<i className="fa fa-star" />}
           />
-          {Number(movie.rating).toFixed(1)} / 5.0
+          <span style={{ textShadow: "3px 4px 10px #212121" }}>{Number(movie.rating).toFixed(1)} / 5.0</span>
         </div>
       </div>
     </a>

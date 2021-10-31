@@ -4,8 +4,8 @@ import "./assets/css/fontfamily.css";
 import "./assets/css/sb-admin-2.min.css";
 import "./assets/vendor/fontawesome-free/css/all.css";
 import HomePage from "./views/HomePage";
-import Movies from "./views/Movies";
 import MovieDetail from "./views/MovieDetail";
+import FilterPage from "./views/FilterPage";
 import PagetNotFound from "./views/PageNotFound";
 
 function App() {
@@ -15,11 +15,23 @@ function App() {
         <Route exact path="/">
           <HomePage />
         </Route>
-        <Route path="/movies">
-          <Movies />
-        </Route>
         <Route path="/movie/:slug">
           <MovieDetail />
+        </Route>
+        <Route path="/genre/:GenreId">
+          <FilterPage filter="GenreId" />
+        </Route>
+        <Route path="/search">
+          <FilterPage filter="search" />
+        </Route>
+        <Route path="/boxOffice">
+          <FilterPage filter="category" name="Box Office" />
+        </Route>
+        <Route path="/tvSeries">
+          <FilterPage filter="category" name="TV Series" />
+        </Route>
+        <Route path="/animes">
+          <FilterPage filter="category" name="Animes" />
         </Route>
         <Route path="*">
           <PagetNotFound />

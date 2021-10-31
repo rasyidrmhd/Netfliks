@@ -8,9 +8,28 @@ export function setMovies(payload) {
   };
 }
 
-export function fetchMovies(params) {
+export function fetchMovies(params = {}) {
+  const { GenreId, category, rating, title } = params;
+  let url = `${server}/movies`;
+
+  if (GenreId) {
+    url += `?GenreId=${GenreId}`;
+  }
+
+  if (category) {
+    url += `?category=${category}`;
+  }
+
+  if (rating) {
+    url += `?rating=${rating}`;
+  }
+
+  if (title) {
+    url += `?title=${title}`;
+  }
+
   return async (dispatch, getState) => {
-    const result = await fetch(`${server}/movies`);
+    const result = await fetch(url);
     return result;
   };
 }
