@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "title": "Avengers: End Game",
     "slug": "avengers:-end-game-1",
     "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
@@ -12,7 +11,6 @@
     "AuthorId": 1
   },
   {
-    "id": 2,
     "title": "Free Guy",
     "slug": "free-guy-2",
     "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
@@ -24,7 +22,6 @@
     "AuthorId": 1
   },
   {
-    "id": 3,
     "title": "Sonic The Hedgehog",
     "slug": "sonic-the-hedgehog-3",
     "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
@@ -36,7 +33,6 @@
     "AuthorId": 1
   },
   {
-    "id": 4,
     "title": "Your Name",
     "slug": "your-name-4",
     "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
@@ -48,7 +44,6 @@
     "AuthorId": 1
   },
   {
-    "id": 5,
     "title": "Captain America: Winter Soldier",
     "slug": "captain-america:-winter-soldier-5",
     "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
@@ -60,7 +55,6 @@
     "AuthorId": 1
   },
   {
-    "id": 6,
     "title": "Deadpool",
     "slug": "deadpool-6",
     "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
@@ -72,7 +66,6 @@
     "AuthorId": 1
   },
   {
-    "id": 7,
     "title": "Squid Game",
     "slug": "squid-game-7",
     "synopsis": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut esse voluptatibus officia nam ratione a eveniet iusto ipsam blanditiis repudiandae magni id exercitationem, nostrum soluta vel consequatur culpa est dolores dicta expedita corporis saepe iste aperiam deleniti? Nemo laborum impedit facere, dolore, reprehenderit consectetur quam veniam maiores nesciunt voluptatem temporibus?",
