@@ -1,8 +1,6 @@
-import ReactStars from "react-rating-stars-component";
 import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import "react-multi-carousel/lib/styles.css";
 import { fetchMovieBySlug, setMovieBySlug } from "../store/actions/movieAction";
 import { fetchGenres, setGenres } from "../store/actions/genreAction";
 import Navbar from "../components/Navbar";

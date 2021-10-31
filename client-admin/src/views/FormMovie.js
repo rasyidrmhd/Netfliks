@@ -167,8 +167,8 @@ export default function AddMovie(props) {
                     <div className="form-group">
                       <label htmlFor="category">Category</label>
                       <select className="form-control border-0 rounded-pill" name="category" onChange={changeInputMovieHandler}>
-                        <option value="Movies" selected={inputMovie.category === "Movies" ? "selected" : false}>
-                          Movies
+                        <option value="Movies" selected={inputMovie.category === "Box Office" ? "selected" : false}>
+                          Box Office
                         </option>
                         <option value="TV Series" selected={inputMovie.category === "TV Series" ? "selected" : false}>
                           TV Series

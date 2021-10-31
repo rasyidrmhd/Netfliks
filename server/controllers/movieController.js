@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 class MovieController {
   static async getAllMovie(req, res, next) {
     try {
-      const { GenreId, category, rating } = req.query;
+      const { GenreId, category, rating, title } = req.query;
       let where = {};
 
       if (GenreId) {
@@ -17,6 +17,12 @@ class MovieController {
 
       if (rating) {
         where["rating"] = rating;
+      }
+
+      if (title) {
+        where["title"] = {
+          [Op.iLike]: `%${title}%`,
+        };
       }
 
       const result = await Movie.findAll({
@@ -158,12 +164,23 @@ class MovieController {
         transaction: t,
       });
 
-      if (deleteCast !== 0 || Casts.length !== 0) {
-        const createCast = await Cast.bulkCreate(Casts, {
-          returning: true,
-          transaction: t,
-        });
-      }
+      const oldCasts = await Cast.findAll({
+        where: {
+          MovieId: result[1][0].dataValues.id,
+        },
+        transaction: t,
+      });
+
+      const newCasts = Casts.filter((cast) => !oldCasts.some((old) => old.name === cast.name));
+
+      await Cast.bulkCreate(newCasts, { transaction: t });
+
+      // if (deleteCast !== 0 || Casts.length !== 0) {
+      //   const createCast = await Cast.bulkCreate(Casts, {
+      //     returning: true,
+      //     transaction: t,
+      //   });
+      // }
 
       await t.commit();
       res.status(200).json({ result: result[1][0].dataValues });

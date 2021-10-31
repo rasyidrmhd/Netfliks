@@ -79,9 +79,13 @@ Target:
 Target:
 
 - [x] Knowledge - SQL Transaction
-- [ ] Membuat transaction saat membuat entitas baru pada main table. Pastikan ada assosiasi di dalamnya
+- [x] Membuat transaction saat membuat entitas baru pada main table. Pastikan ada assosiasi di dalamnya
 - [x] LC Simulation
 
 **Report:**
 
 ...
+
+server: https://netfliks-api.herokuapp.com
+admin: https://netfliks-cms.web.app
+user: https://my-netfliks.web.app
