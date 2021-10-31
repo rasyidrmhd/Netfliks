@@ -34,10 +34,9 @@ class GenreController {
 
       const found = await Genre.findOne({
         where: {
-          name:
-            {
-              [Op.iLike]: `%${name}%`,
-            } || null,
+          name: {
+            [Op.iLike]: `%${name}%`,
+          },
         },
       });
 

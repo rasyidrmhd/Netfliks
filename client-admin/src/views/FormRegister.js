@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { postUser, setLoading } from "../store/actions/userAction";
+import { useDispatch } from "react-redux";
+import { postUser } from "../store/actions/userAction";
 import Sidebar from "../components/Sidebar";
-import { swalSuccess, swalError, swalLoading, Swal } from "../apis/sweetalert";
+import { swalSuccess, swalLoading, Swal } from "../apis/sweetalert";
 
 export default function Register() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const { isLoading } = useSelector((state) => state.userReducer);
   const [err, setErr] = useState([]);
   const [inputRegister, setInputRegister] = useState({
     username: "",
@@ -30,7 +29,7 @@ export default function Register() {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    dispatch(setLoading(true));
+    swalLoading();
     dispatch(postUser(inputRegister))
       .then(async (response) => {
         const result = await response.json();
@@ -41,22 +40,18 @@ export default function Register() {
         }
       })
       .then((data) => {
-        swalSuccess("", `${data.username} successfully registered`);
-        history.push("/home");
+        Swal.close();
+        swalSuccess("", `${data.username} successfully registered`).then((result) => {
+          if (result.isConfirmed) {
+            history.push("/home");
+          }
+        });
       })
       .catch((err) => {
+        Swal.close();
         setErr(err);
-      })
-      .finally(() => {
-        dispatch(setLoading(false));
       });
   };
-
-  if (isLoading) {
-    swalLoading();
-  } else {
-    Swal.close();
-  }
 
   let showError = "";
   if (err.length !== 0) {

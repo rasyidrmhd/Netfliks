@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setLoading, setError, login } from "../store/actions/loginAction";
-import { swalLoading, Swal } from "../apis/sweetalert";
+import { useDispatch } from "react-redux";
+import { login } from "../store/actions/loginAction";
+import { swalLoading, Swal, swalError } from "../apis/sweetalert";
 
 export default function Login(props) {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { isLoading, isError } = useSelector((state) => state.loginReducer);
+  const [err, setErr] = useState([]);
   const [inputLogin, setInputLogin] = useState({
     email: "",
     password: "",
@@ -24,7 +24,7 @@ export default function Login(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(setLoading(true));
+    swalLoading();
     dispatch(login(inputLogin))
       .then(async (response) => {
         const result = await response.json();
@@ -36,22 +36,14 @@ export default function Login(props) {
       })
       .then((data) => {
         localStorage.setItem("access_token", data.access_token);
-        history.push("/home");
         Swal.close();
+        history.push("/home");
       })
       .catch((err) => {
-        dispatch(setError(err));
-      })
-      .finally(() => {
-        dispatch(setLoading(false));
+        Swal.close();
+        setErr(err);
       });
   };
-
-  if (isLoading) {
-    swalLoading();
-  } else {
-    Swal.close();
-  }
 
   return (
     <div className="row d-flex justify-content-center align-items-center" style={{ minHeight: "100vh", width: "100vw" }}>
@@ -62,7 +54,7 @@ export default function Login(props) {
               <div className="text-center">
                 <h1 className="h2 text-danger font-weight-bolder">Netfliks Admin</h1>
               </div>
-              <p className="text-danger text-center">{isError.message}</p>
+              <p className="text-danger text-center">{err.message}</p>
               <form className="mt-4 user" onSubmit={submitHandler}>
                 <div className="form-group">
                   <label htmlFor="email">Username / Email</label>

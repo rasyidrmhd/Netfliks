@@ -1,32 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchUser, deleteUser } from "../store/actions/userAction";
+import { fetchUser, setUser, deleteUser } from "../store/actions/userAction";
 import Sidebar from "../components/Sidebar";
 import TableRowAdmin from "../components/TableRowAdmin";
 import { swalSuccess, swalError, swalLoading, Swal } from "../apis/sweetalert";
 
 export default function Home(props) {
   const dispatch = useDispatch();
-  const { users, isLoading, isError } = useSelector((state) => state.userReducer);
-
-  const deleteUserById = (id) => {
-    dispatch(deleteUser(id));
-  };
+  const { users } = useSelector((state) => state.userReducer);
 
   useEffect(() => {
-    dispatch(fetchUser());
-  }, []);
-
-  if (isLoading) {
     swalLoading();
-  } else {
-    Swal.close();
-  }
-
-  if (isError.length !== 0) {
-    swalError("", isError.message);
-  }
+    dispatch(fetchUser())
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
+      .then((data) => {
+        Swal.close();
+        dispatch(setUser(data));
+      })
+      .catch((err) => {
+        Swal.close();
+        swalError("", `${err.message}`);
+      });
+  }, []);
 
   return (
     <div>
@@ -58,12 +61,11 @@ export default function Home(props) {
                         <th>Role</th>
                         <th>Phone Number</th>
                         <th>Address</th>
-                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       {users.map((user, idx) => {
-                        return <TableRowAdmin key={user.id} user={user} idx={idx} deleteUserById={deleteUserById} />;
+                        return <TableRowAdmin key={user.id} user={user} idx={idx} />;
                       })}
                     </tbody>
                   </table>

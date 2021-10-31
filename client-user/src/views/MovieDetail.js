@@ -55,15 +55,13 @@ export default function MovieDetail(props) {
       <div className="modal-body d-flex flex-wrap justify-content-start">
         {movieBySlug.Casts.map((cast) => {
           return (
-            <>
-              <div className="text-center mr-3 mb-3" key={cast.id}>
-                <img className="rounded-circle border-0 mb-3" src={cast.profilePict} alt="can't load the image" style={{ width: "150px", height: "150px", objectFit: "cover" }} />
-                <br />
-                <span className="badge badge-info" style={{ fontSize: "14px" }}>
-                  {cast.name}
-                </span>
-              </div>
-            </>
+            <div className="text-center mr-3 mb-3" key={cast.id}>
+              <img className="rounded-circle border-0 mb-3" src={cast.profilePict} alt="can't load the image" style={{ width: "150px", height: "150px", objectFit: "cover" }} />
+              <br />
+              <span className="badge badge-info" style={{ fontSize: "14px" }}>
+                {cast.name}
+              </span>
+            </div>
           );
         })}
       </div>
@@ -115,7 +113,7 @@ export default function MovieDetail(props) {
         <div className="text-left">
           <h4>Synopsis</h4>
           <p>{movieBySlug.synopsis}</p>
-          <h4>Casts</h4>
+          <h4 className="mb-0">Casts</h4>
           {showCasts}
         </div>
       </div>

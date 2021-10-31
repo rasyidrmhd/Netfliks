@@ -1,5 +1,6 @@
 import { server } from "../../apis/server";
 import { SET_MOVIES, SET_MOVIE_BY_ID } from "../actionType";
+import { swalLoading, swalError, swalSuccess, Swal } from "../../apis/sweetalert";
 
 export function setMovie(payload) {
   return {
@@ -9,6 +10,7 @@ export function setMovie(payload) {
 }
 
 export function fetchMovie() {
+  swalLoading();
   return (dispatch, getState) => {
     fetch(`${server}/movies`)
       .then(async (response) => {
@@ -21,9 +23,11 @@ export function fetchMovie() {
       })
       .then((data) => {
         dispatch(setMovie(data));
+        Swal.close();
       })
       .catch((err) => {
-        console.log(err, "error from action fetchMovie");
+        Swal.close();
+        swalError("", `${err.message}`);
       });
   };
 }
@@ -36,8 +40,14 @@ export function setMovieBySlug(payload) {
 }
 
 export function fetchMovieBySlug(slug) {
+  swalLoading();
   return (dispatch, getState) => {
-    fetch(`${server}/movies/${slug}`)
+    const access_token = localStorage.getItem("access_token");
+    fetch(`${server}/movies/${slug}`, {
+      headers: {
+        access_token,
+      },
+    })
       .then(async (response) => {
         const result = await response.json();
         if (response.ok) {
@@ -48,25 +58,40 @@ export function fetchMovieBySlug(slug) {
       })
       .then((data) => {
         dispatch(setMovieBySlug(data));
+        Swal.close();
       })
       .catch((err) => {
-        console.log(err, "Errorrrrr");
+        Swal.close();
+        swalError("", `${err.message}`);
       });
   };
 }
 
 export function deleteMovie(id) {
+  swalLoading();
   return (dispatch, getState) => {
+    const access_token = localStorage.getItem("access_token");
     fetch(`${server}/movies/${id}`, {
       method: "DELETE",
+      headers: {
+        access_token,
+      },
     })
-      .then((response) => response.json())
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
       .then((data) => {
         const newMovies = getState().movieReducer.movies.filter((movie) => movie.id != id);
         dispatch(setMovie(newMovies));
+        Swal.close();
       })
       .catch((err) => {
-        console.log(err, "error from action deleteMovie");
+        swalError("", `${err.message}`);
       });
   };
 }

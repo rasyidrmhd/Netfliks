@@ -1,5 +1,6 @@
 import { server } from "../../apis/server";
 import { SET_GENRES, SET_GENRE_BY_ID } from "../actionType";
+import { swalLoading, swalError, swalSuccess, Swal } from "../../apis/sweetalert";
 
 export function setGenre(payload) {
   return {
@@ -9,6 +10,7 @@ export function setGenre(payload) {
 }
 
 export function fetchGenre() {
+  swalLoading();
   return (dispatch, getState) => {
     fetch(`${server}/genres`)
       .then(async (response) => {
@@ -21,9 +23,11 @@ export function fetchGenre() {
       })
       .then((data) => {
         dispatch(setGenre(data));
+        Swal.close();
       })
       .catch((err) => {
-        console.log(err, "from action fetchGenre");
+        Swal.close();
+        swalError("", `${err.message}`);
       });
   };
 }
@@ -36,8 +40,14 @@ export function setGenreById(payload) {
 }
 
 export function fetchGenreById(id) {
+  swalLoading();
   return (dispatch, getState) => {
-    fetch(`${server}/genres/${id}`)
+    const access_token = localStorage.getItem("access_token");
+    fetch(`${server}/genres/${id}`, {
+      headers: {
+        access_token,
+      },
+    })
       .then(async (response) => {
         const result = await response.json();
         if (response.ok) {
@@ -48,25 +58,41 @@ export function fetchGenreById(id) {
       })
       .then((data) => {
         dispatch(setGenreById(data));
+        Swal.close();
       })
       .catch((err) => {
-        console.log(err);
+        Swal.close();
+        swalError("", `${err.message}`);
       });
   };
 }
 
 export function deleteGenre(id) {
+  swalLoading();
   return (dispatch, getState) => {
+    const access_token = localStorage.getItem("access_token");
     fetch(`${server}/genres/${id}`, {
       method: "DELETE",
+      headers: {
+        access_token,
+      },
     })
-      .then((response) => response.json())
+      .then(async (response) => {
+        const result = await response.json();
+        if (response.ok) {
+          return result;
+        } else {
+          return Promise.reject(result);
+        }
+      })
       .then((data) => {
         const newGenres = getState().genreReducer.genres.filter((genre) => genre.id != id);
         dispatch(setGenre(newGenres));
+        Swal.close();
       })
       .catch((err) => {
-        console.log(err, "error from action deleteGenre");
+        Swal.close();
+        swalError("", `${err.message}`);
       });
   };
 }
@@ -80,10 +106,13 @@ export function postPutGenre(method, id = 0, data) {
       url = `${server}/genres`;
     }
 
+    console.log(url);
+    const access_token = localStorage.getItem("access_token");
     const result = await fetch(url, {
       method,
       headers: {
         "Content-Type": "application/json",
+        access_token,
       },
       body: JSON.stringify(data),
     });

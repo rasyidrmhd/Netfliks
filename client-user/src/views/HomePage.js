@@ -9,6 +9,10 @@ import Navbar from "../components/Navbar";
 import GenreCard from "../components/GenreCard";
 import MovieCard from "../components/MovieCard";
 import { Swal, swalLoading, swalSuccess, swalError } from "../apis/sweetalert";
+import one from "../assets/carousel/1.png";
+import two from "../assets/carousel/2.png";
+import three from "../assets/carousel/3.png";
+import four from "../assets/carousel/4.png";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -112,13 +116,16 @@ export default function HomePage() {
       <Navbar />
       <Carousel responsive={bannerStyle} infinite={true} autoPlay={true} autoPlaySpeed={2000}>
         <div style={{ height: "70vh" }}>
-          <img src="https://img.okezone.com/content/2019/05/06/206/2051975/makna-di-balik-kalimat-i-love-you-3000-di-avengers-endgame-rzLSTLrS4P.jpg" className="d-block w-100 img-fluid" alt="..." style={{ objectFit: "cover" }} />
+          <img src={one} className="d-block w-100 img-fluid" alt="..." style={{ objectFit: "cover" }} />
         </div>
         <div style={{ height: "70vh" }}>
-          <img src="https://aliefworkshop.files.wordpress.com/2020/04/sonic5.jpg" className="d-block w-100" alt="..." style={{ objectFit: "cover" }} />
+          <img src={two} className="d-block w-100" alt="..." style={{ objectFit: "cover" }} />
         </div>
         <div style={{ height: "70vh" }}>
-          <img src="https://imgx.sonora.id/crop/133x0:1028x587/x/photo/2020/06/12/796445458.jpeg" className="d-block w-100" alt="..." style={{ objectFit: "cover" }} />
+          <img src={three} className="d-block w-100" alt="..." style={{ objectFit: "cover" }} />
+        </div>
+        <div style={{ height: "70vh" }}>
+          <img src={four} className="d-block w-100" alt="..." style={{ objectFit: "cover" }} />
         </div>
       </Carousel>
       <h4 className="mt-3 mb-0 mx-3 font-weight-bolder">Genres</h4>
@@ -137,7 +144,7 @@ export default function HomePage() {
       </div>
       <h4 className="mt-3 mb-0 mx-3 font-weight-bolder">All Movies</h4>
       <div>
-        <div className="d-flex flex-wrap row justify-content-start mx-1">
+        <div className="d-flex flex-wrap flex-row justify-content-start mx-1">
           {movies.map((movie) => {
             return (
               <div className="col-3">
