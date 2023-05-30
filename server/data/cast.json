@@ -1,0 +1,152 @@
+[
+  {
+    "MovieId": 1,
+    "name": "Robert Downey Jr.",
+    "profilePict": "https://img.okezone.com/content/2019/07/13/206/2078288/sukses-besar-ini-penghasilan-robert-downey-jr-di-avengers-endgame-s210PxMDfB.jpg"
+  },
+  {
+    "MovieId": 1,
+    "name": "Crish Evans",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/3/33/Mark_Kassen%2C_Tony_C%C3%A1rdenas_and_Chris_Evans_%28cropped%29.jpg"
+  },
+  {
+    "MovieId": 1,
+    "name": "Mark Ruffalo",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Mark_Ruffalo_in_2017_by_Gage_Skidmore.jpg/1200px-Mark_Ruffalo_in_2017_by_Gage_Skidmore.jpg"
+  },
+  {
+    "MovieId": 1,
+    "name": "Chris Hemsworth",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Chris_Hemsworth_by_Gage_Skidmore.jpg"
+  },
+  {
+    "MovieId": 1,
+    "name": "Scarlet Johannson",
+    "profilePict": "https://m.media-amazon.com/images/M/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_.jpg"
+  },
+  {
+    "MovieId": 1,
+    "name": "Jeremy Renner",
+    "profilePict": "https://m.media-amazon.com/images/M/MV5BOTk2NDc2ODgzMF5BMl5BanBnXkFtZTcwMTMzOTQ4Nw@@._V1_UY1200_CR48,0,630,1200_AL_.jpg"
+  },
+  {
+    "MovieId": 2,
+    "name": "Ryan Reynold",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ryan_Reynolds_by_Gage_Skidmore.jpg/1200px-Ryan_Reynolds_by_Gage_Skidmore.jpg"
+  },
+  {
+    "MovieId": 2,
+    "name": "Jodie Comer",
+    "profilePict": "https://media1.popsugar-assets.com/files/thumbor/JwAe7HTE4uBssC4-b9jHtKeVojg/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/09/25/543/n/2589278/346f343e5baa23c0ad0f38.84693216_/i/Who-Jodie-Comer.jpg"
+  },
+  {
+    "MovieId": 2,
+    "name": "Taika Waititi",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Taika_Waititi_by_Gage_Skidmore.jpg/1200px-Taika_Waititi_by_Gage_Skidmore.jpg"
+  },
+  {
+    "MovieId": 2,
+    "name": "Lil Rey Howery",
+    "profilePict": "https://m.media-amazon.com/images/M/MV5BNjM1NTI1MjIwMl5BMl5BanBnXkFtZTgwNzk0NDI0NjE@._V1_UY1200_CR134,0,630,1200_AL_.jpg"
+  },
+  {
+    "MovieId": 3,
+    "name": "Ben Scwartz",
+    "profilePict": "https://static.wikia.nocookie.net/scroogemcduck/images/6/64/BenSchwartzNew.jpg/revision/latest?cb=20200803155431"
+  },
+  {
+    "MovieId": 3,
+    "name": "James Masden",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/f/ff/James_Marsden_by_Gage_Skidmore.jpg"
+  },
+  {
+    "MovieId": 3,
+    "name": "Jim Carrey",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Jim_Carrey_2008.jpg"
+  },
+  {
+    "MovieId": 3,
+    "name": "Tika Sumpter",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Tika_Sumpter_2013.jpg/220px-Tika_Sumpter_2013.jpg"
+  },
+  {
+    "MovieId": 4,
+    "name": "Ryunosuke Kamiki",
+    "profilePict": "https://cdn.myanimelist.net/images/voiceactors/2/47205.jpg"
+  },
+  {
+    "MovieId": 4,
+    "name": "Mone Kamishiraishi",
+    "profilePict": "https://www.themoviedb.org/t/p/original/cPydoy2sSqFDsbXeBPmzQGPmq0R.jpg"
+  },
+  {
+    "MovieId": 4,
+    "name": "Ryo Narita",
+    "profilePict": "https://asianwiki.com/images/2/2b/Ryo_Narita-1993-p1.jpg"
+  },
+  {
+    "MovieId": 4,
+    "name": "Aoi Yuuki",
+    "profilePict": "https://cdn.myanimelist.net/images/voiceactors/3/63761.jpg"
+  },
+  {
+    "MovieId": 5,
+    "name": "Crish Evans",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/3/33/Mark_Kassen%2C_Tony_C%C3%A1rdenas_and_Chris_Evans_%28cropped%29.jpg"
+  },
+  {
+    "MovieId": 5,
+    "name": "Scarlet Johannson",
+    "profilePict": "https://m.media-amazon.com/images/M/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_.jpg"
+  },
+  {
+    "MovieId": 5,
+    "name": "Samuel L. Jackson",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Samuel_L._Jackson_2019_by_Glenn_Francis.jpg/225px-Samuel_L._Jackson_2019_by_Glenn_Francis.jpg"
+  },
+  {
+    "MovieId": 5,
+    "name": "Sebastian Stan",
+    "profilePict": "https://3.bp.blogspot.com/-aPO7OTl_67c/XNw-EE85Z4I/AAAAAAAAPa8/vNDOcckH7f4HHSTtv--aaOCUqH172GgGwCLcBGAs/s1600/Sebastian%2BStan.jpg"
+  },
+  {
+    "MovieId": 6,
+    "name": "Ryan Reynold",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ryan_Reynolds_by_Gage_Skidmore.jpg/1200px-Ryan_Reynolds_by_Gage_Skidmore.jpg"
+  },
+  {
+    "MovieId": 6,
+    "name": "Morena Baccarin",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Morena_Baccarin_by_Gage_Skidmore_2.jpg/1200px-Morena_Baccarin_by_Gage_Skidmore_2.jpg"
+  },
+  {
+    "MovieId": 6,
+    "name": "T.J. Miller",
+    "profilePict": "https://m.media-amazon.com/images/M/MV5BMjIwMzI0NTEwMF5BMl5BanBnXkFtZTcwMjk4MDkxNA@@._V1_UY1200_CR102,0,630,1200_AL_.jpg"
+  },
+  {
+    "MovieId": 6,
+    "name": "Ed Skrein",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Ed_Skrein_by_Gage_Skidmore.jpg/1200px-Ed_Skrein_by_Gage_Skidmore.jpg"
+  },
+  {
+    "MovieId": 7,
+    "name": "Lee Jung-Jae",
+    "profilePict": "https://asianwiki.com/images/2/21/Lee_Jung-Jae-Assassiantion-GV.jpg"
+  },
+  {
+    "MovieId": 7,
+    "name": "Park Hae-Soo",
+    "profilePict": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/20210923%E2%80%94Park_Hae-soo_%EB%B0%95%ED%95%B4%EC%88%98%2C_interview%2C_ELLE_Taiwan_screenshot_%2802m20s%29.jpg/1200px-20210923%E2%80%94Park_Hae-soo_%EB%B0%95%ED%95%B4%EC%88%98%2C_interview%2C_ELLE_Taiwan_screenshot_%2802m20s%29.jpg"
+  },
+  {
+    "MovieId": 7,
+    "name": "Jung Ho Yeon",
+    "profilePict": "https://cdn-cas.orami.co.id/parenting/images/209428730_1841272969389738_4058.width-800.jpegquality-80.jpg"
+  },
+  {
+    "MovieId": 7,
+    "name": "Oh Yeong-Su",
+    "profilePict": "https://m.media-amazon.com/images/M/MV5BODNlYjVjZjAtMjRhNC00NWM1LThjYTgtOWQwMTQ5MGJhMmU1XkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg"
+  }
+]

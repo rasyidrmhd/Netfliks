@@ -1,7 +1,7 @@
 # P3-Challenge-1
 
-- Tema Aplikasi:
-- CSS Framework:
+- Tema Aplikasi: Movie Synopsis
+- CSS Framework: Bootstrap
 
 Struktur Folder:
 
@@ -13,78 +13,86 @@ Struktur Folder:
 
 Target:
 
-- [ ] Knowledge - React Class Component
-- [ ] State
-- [ ] Props (state, function)
-- [ ] Event Handling (onClick, onChange, onSubmit)
-- [ ] Conditional in React
-- [ ] Looping in React
-- [ ] Lifecycle component, (componentDidmount)
-- [ ] Create server (json-server)
-- [ ] Create react app for client-user (Styling)
-- [ ] Create react app for client-admin (CRUD)
-- [ ] Menentukan Thema Aplikasi
-- [ ] Menentukan Design dan pemilihan CSS Framework
+- [x] Knowledge - React Class Component
+- [x] State
+- [x] Props (state, function)
+- [x] Event Handling (onClick, onChange, onSubmit)
+- [x] Conditional in React
+- [x] Looping in React
+- [x] Lifecycle component, (componentDidmount)
+- [x] Create server (json-server)
+- [x] Create react app for client-user (Styling)
+- [x] Create react app for client-admin (CRUD)
+- [x] Menentukan Thema Aplikasi
+- [x] Menentukan Design dan pemilihan CSS Framework
 
 **Report:**
 
-...
-
-> contoh: Hari ini saya belajar React Component. Saya memahami bagaimana cara React bekerja. Lifecycle yang sudah saya coba adalah componentDidMount yang digunakan untuk fetch data dst. Namun saya belum mencoba menggunakan onSubmit dikarenakan data yang didapat belum sesuai.
-> Pada tugas ini, saya memilih Tema A dengan mengambil referensi dari B. Saya juga akan menggunakan CSS Framework yaitu Tailwind CSS
+> Saya memilih tema movies (referensi dari Netflix) dengan menggunakan CSS Framework Bootstrap. Saya belajar setup project dengan menggunakan React App serta memecah component dengan menjadi beberapa file. Lifecycle yang sudah saya coba ada componentDidMount untuk fetch data dari json-server lalu disimpan ke state dan hasil datanya sudah saya tampilkan dengan menggunakan looping.
 
 ## W1D2
 
 Target:
 
-- [ ] Knowledge - React Function Component & Hooks
-- [ ] Membuat state dengan useState
-- [ ] Lifecycle dengan useEffect
-- [ ] Custom hooks
-- [ ] Event Handling (onClick, onChange, onSubmit)
-- [ ] Refactoring user-side & admin-side
+- [x] Knowledge - React Function Component & Hooks
+- [x] Membuat state dengan useState
+- [x] Lifecycle dengan useEffect
+- [x] Custom hooks
+- [x] Event Handling (onClick, onChange, onSubmit)
+- [x] Refactoring user-side & admin-side
 
 **Report:**
 
-...
+> Hari ini saya fokus untuk melanjutkan layouting di halaman admin, mempelajari functional component + hooks (useState dan useEffect), penggunaan hooks saya sudah cukup mengerti namun untuk membuat custom hook belum saya coba.
 
 ## W1D3
 
 Target:
 
-- [ ] Knowledge - React-Router
-- [ ] Membuat router user-side (min: home, detail)
-- [ ] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
-- [ ] Membuat privateRoute untuk admin
-- [ ] Knowledge - Redux
-- [ ] Create Store
-- [ ] Create Reducer
-- [ ] Create Action
+- [x] Knowledge - React-Router
+- [x] Membuat router user-side (min: home, detail)
+- [x] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
+- [x] Membuat privateRoute untuk admin
+- [x] Knowledge - Redux
+- [x] Create Store
+- [x] Create Reducer
+- [x] Create Action
 
 **Report:**
 
-...
+> Hari ini saya refactoring route dari menggunakan pengkondisian dalam app.js menjadi router dari React, saya juga sudah menggunakan privateRoute pada halaman-halaman admin untuk memproteksi halaman selain login dan mencoba menggunakan NavLink untuk membedakan link pada halaman yang sedang aktif. Redux baru mencoba seperti saat lecture (melakukan counter) namun sudah cukup memahami flow nya.
 
 ## W1D4
 
 Target:
 
-- [ ] Knowledge - Redux-thunk (handle async)
-- [ ] Create server using express.js, postgreSQL and Sequelize
-- [ ] Describe associations between tables
+- [x] Knowledge - Redux-thunk (handle async)
+- [x] Create server using express.js, postgreSQL and Sequelize
+- [x] Describe associations between tables
 
 **Report:**
 
-...
+> Hari ini saya mempelajari cara penggunaan redux thunk untuk melakukan fetching data ke database. Sudah memulai pembuatan server menggunakan ExpressJs, Postgres, dan Sequelize
 
 ## W1D5
 
 Target:
 
-- [ ] Knowledge - SQL Transaction
-- [ ] Membuat transaction saat membuat entitas baru pada main table. Pastikan ada assosiasi di dalamnya
-- [ ] LC Simulation
+- [x] Knowledge - SQL Transaction
+- [x] Membuat transaction saat membuat entitas baru pada main table. Pastikan ada assosiasi di dalamnya
+- [x] LC Simulation
 
 **Report:**
 
 ...
+
+## Deploy links:
+
+- Server (Heroku): https://netfliks-api.herokuapp.com
+- Client-Admin (Firebase): https://netfliks-cms.web.app
+
+  > **Admin account**
+  > email: acit@mail.com / username: acit
+  > password: 12345
+
+- Client-User (Firebase): https://my-netfliks.web.app
