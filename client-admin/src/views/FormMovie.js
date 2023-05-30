@@ -240,7 +240,6 @@ export default function AddMovie(props) {
                       <input
                         id="rating"
                         type="number"
-                        className=""
                         className="form-control border-0 rounded-pill"
                         autoComplete="off"
                         name="rating"
